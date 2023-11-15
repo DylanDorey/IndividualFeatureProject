@@ -9,13 +9,6 @@ using UnityEngine;
  */
 
 //the type of weapon the gun is
-public enum WeaponType
-{
-    assaultRifle,
-    subMachineGun
-}
-
-//the type of weapon the gun is
 public enum FireMode
 {
     semi,
@@ -26,17 +19,17 @@ public enum FireMode
 public class Weapon : MonoBehaviour
 {
     //Locations where all of the attachments will attach to on the weapon
-    public Vector3 opticLocation, laserLocation, barrelLocation, muzzleLocation, gripLocation, magazineLocation, rearGripLocation;
+    public GameObject opticLocation, laserLocation, barrelLocation, muzzleLocation, gripLocation, magazineLocation, rearGripLocation;
 
     //Location where the weapon will interpolate to when aiming down sights
-    public Vector3 adsLowLocation;
+    public GameObject adsLowLocation;
     public Vector3 adsHighLocation;
 
     //audio clips for weapon
     public AudioClip fireSound;
 
     //all weapon properties
-    public string weaponName;
+    public string weaponType, weaponName, weaponDescription;
     public Sprite icon;
     public float damage, fireRate, range, accuracy, recoilControl, mobility, handling;
 

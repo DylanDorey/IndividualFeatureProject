@@ -4,14 +4,20 @@ using UnityEngine;
 
 /*
  * Author: [Dorey, Dylan]
- * Last Updated: [11/...................../2023]
+ * Last Updated: [11/14/2023]
  * [Manage everything weapon related in the gunsmith]
  */
 public class GunsmithManager : MonoBehaviour
 {
     //singelton for GunsmithManager
-    private GunsmithManager _instance;
-    private GunsmithManager Instance { get { return _instance; } }
+    private static GunsmithManager _instance;
+    public static GunsmithManager Instance { get { return _instance; } }
+
+    //references to weapons
+    public GameObject MCW;
+
+    //array of various weapons
+    public GameObject[] weapons;
 
     private void Awake()
     {
@@ -26,18 +32,21 @@ public class GunsmithManager : MonoBehaviour
             //otherwise set this to _instance
             _instance = this;
         }
+
+        //initialize weapons array
+        weapons = new GameObject[1];
+        weapons[0] = MCW;
     }
 
-    /// <summary>
-    /// allows the player to select a weapon from a list of weapons
-    /// </summary>
-    /// <param name="weaponChoice"> the weapon the player selects </param>
-    /// <returns></returns>
-    public GameObject ChooseWeapon(GameObject weaponChoice)
-    {
-
-        return weaponChoice;
-    }
+    ///// <summary>
+    ///// allows the player to select a weapon from a list of weapons
+    ///// </summary>
+    ///// <param name="weaponChoice"> the weapon the player selects </param>
+    ///// <returns></returns>
+    //public GameObject WeaponSelected(GameObject weaponChoice)
+    //{
+    //    return weaponChoice;
+    //}
 
     /// <summary>
     /// equips an attachment from the attachment list onto the players weapon

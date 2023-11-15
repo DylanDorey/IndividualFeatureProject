@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MCW : MonoBehaviour
+/*
+ * Author: [Dorey, Dylan]
+ * Last Updated: [11/14/2023]
+ * [MCW assault rifle script]
+ */
+public class MCW : Weapon
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
