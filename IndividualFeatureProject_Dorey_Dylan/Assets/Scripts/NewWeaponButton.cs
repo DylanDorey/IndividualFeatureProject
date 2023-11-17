@@ -20,16 +20,22 @@ public class NewWeaponButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        //switch player to the gunsmith screen
         UIManager.Instance.OpenGunsmith(weapon);
+
+        //initialize the current weapon in the gunsmith to this weapon
+        GunsmithManager.Instance.currentGSWeapon = weapon;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        //display all weapon info/stats in weapon selection menu
         UIManager.Instance.OnWeaponButtonEnter(weapon);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        //disable all weapon info/stats in weapon selection menu
         UIManager.Instance.OnWeaponButtonExit(weapon);
     }
 }

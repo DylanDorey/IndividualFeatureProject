@@ -19,7 +19,7 @@ public enum FireMode
 public class Weapon : MonoBehaviour
 {
     //Locations where all of the attachments will attach to on the weapon
-    public GameObject opticLocation, laserLocation, barrelLocation, muzzleLocation, gripLocation, magazineLocation, rearGripLocation;
+    public GameObject opticLocation, laserLocation, barrelLocation, muzzleLocation, gripLocation, magazineLocation, rearGripLocation, stockLocation;
 
     //Location where the weapon will interpolate to when aiming down sights
     public GameObject adsLowLocation;
@@ -41,7 +41,7 @@ public class Weapon : MonoBehaviour
     public GameObject bulletType;
 
     //attachments currently on the weapon
-    public GameObject[] weaponAttachments = new GameObject[8];
+    public GameObject[] weaponAttachments = new GameObject[9];
 
     /// <summary>
     /// Adds recoil to the weapon when shot based upon various attachment/weapon properties

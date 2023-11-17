@@ -13,11 +13,34 @@ public class GunsmithManager : MonoBehaviour
     private static GunsmithManager _instance;
     public static GunsmithManager Instance { get { return _instance; } }
 
+    //the current weapon inside the gunsmith
+    public GameObject currentGSWeapon;
+
+    //the current weapon inside the gunsmith normal rotation
+    public Quaternion originalWeaponRotation;
+
+    //the amount of weapons available to use in the gunsmith
+    private int numWeapons = 1;
+
     //references to weapons
     public GameObject MCW;
 
     //array of various weapons
     public GameObject[] weapons;
+
+    //attachment slot references
+    public GameObject opticSlot;
+    public GameObject laserSlot;
+    public GameObject barrelSlot;
+    public GameObject muzzleSlot;
+    public GameObject gripSlot;
+    public GameObject magazineSlot;
+    public GameObject rearGripSlot;
+    public GameObject stockSlot;
+
+    //when the player is previewing their weapon
+    private bool isPreviewingWeapon;
+    private float rotateSpeed = 9.0f;
 
     private void Awake()
     {
@@ -34,19 +57,19 @@ public class GunsmithManager : MonoBehaviour
         }
 
         //initialize weapons array
-        weapons = new GameObject[1];
+        weapons = new GameObject[numWeapons];
         weapons[0] = MCW;
     }
 
-    ///// <summary>
-    ///// allows the player to select a weapon from a list of weapons
-    ///// </summary>
-    ///// <param name="weaponChoice"> the weapon the player selects </param>
-    ///// <returns></returns>
-    //public GameObject WeaponSelected(GameObject weaponChoice)
-    //{
-    //    return weaponChoice;
-    //}
+    private void Update()
+    {
+        //if the screen state is disabled and isPreviewingWeapon is true
+        if (UIManager.Instance.screenState == ScreenState.disabled && isPreviewingWeapon)
+        {
+            //allow mouse movement
+            
+        }
+    }
 
     /// <summary>
     /// equips an attachment from the attachment list onto the players weapon
@@ -54,8 +77,14 @@ public class GunsmithManager : MonoBehaviour
     /// <param name="attachment"> the attachment the player selects to equip onto their weapon </param>
     public void EquipAttachment(GameObject attachment)
     {
-        
+        //---------------------------------^ use this variable for the attachment/access the attachment items like attachment icon, name, AttachmentData script, etc (look at NewAttachmentButton script)
         //change attachment slot color
+
+        //change attachment slot image
+
+        //change attachment slot item name
+
+        //
     }
 
     /// <summary>
@@ -64,7 +93,39 @@ public class GunsmithManager : MonoBehaviour
     /// <param name="attachment"> the attachment the player selects to remove from their weapon </param>
     public void RemoveAttachment(GameObject attachment)
     {
+        //return to gunsmith screen
+        UIManager.Instance.screenState = ScreenState.gunsmith;
 
+
+    }
+
+    /// <summary>
+    /// Allosw the player to spin the weapon around and disables UI
+    /// </summary>
+    public void EnterPreviewWeapon()
+    {
+        //set the original rotation value
+        originalWeaponRotation = currentGSWeapon.transform.rotation;
+
+        //disable the UI and set isPreviewingWeapon to true
+        UIManager.Instance.screenState = ScreenState.disabled;
+        isPreviewingWeapon = true;
+
+        //enable the mouse follow transform
+    }
+
+    /// <summary>
+    /// Allosw the player to spin the weapon around and disables UI
+    /// </summary>
+    public void ExitPreviewWeapon()
+    {
+        //enable the UI
+        UIManager.Instance.screenState = ScreenState.gunsmith;
+
+        isPreviewingWeapon = false;
+
+        //reset weapons rotation back to default
+        currentGSWeapon.transform.rotation = originalWeaponRotation;
     }
 
     /// <summary>
@@ -73,6 +134,6 @@ public class GunsmithManager : MonoBehaviour
     /// <param name="weapon"> the weapon that the player selected with all of their attachments </param>
     public void EquipCompletedWeapon(GameObject weapon)
     {
-
+        //SAVE THE ATTACHMENTS IN THE WEAPON ATTACHMENTS ARRAY
     }
 }

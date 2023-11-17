@@ -13,6 +13,7 @@ using TMPro;
 //the state that the screen is in
 public enum ScreenState
 {
+    disabled,
     playing,
     selectWeapon,
     gunsmith,
@@ -58,6 +59,13 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI gsAmmoText;
     public TextMeshProUGUI gsAmmoReserveText;
     public TextMeshProUGUI gsModificationsText;
+    public GameObject gsDamageBar;
+    public GameObject gsFireRateBar;
+    public GameObject gsRangeBar;
+    public GameObject gsAccuracyBar;
+    public GameObject gsRecoilControlBar;
+    public GameObject gsMobilityBar;
+    public GameObject gsHandlingBar;
 
     //gunsmith screen UI button elements
     public GameObject opticButton;
@@ -65,15 +73,20 @@ public class UIManager : MonoBehaviour
     public GameObject barrelButton;
     public GameObject muzzleButton;
     public GameObject gripButton;
-    public GameObject ammunitionButton;
     public GameObject magazineButton;
     public GameObject rearGripButton;
+    public GameObject stockButton;
 
     //attachment selection screen UI text elements
+    public GameObject newAttachmentButtonPrefab;
+    public GameObject attachmentButtonSpawnLoc;
+    private Vector3 _attachmentButtonSpawnLoc;
+    public TextMeshProUGUI attachmentTypeText;
     public TextMeshProUGUI attachmentNameText;
     public TextMeshProUGUI attachmentDescriptionText;
     public TextMeshProUGUI prosText;
     public TextMeshProUGUI consText;
+    public GameObject attachmentInfoPanel;
 
     //attachment selection screen UI button elements
     public GameObject attachmentButtonPrefab;
@@ -116,6 +129,13 @@ public class UIManager : MonoBehaviour
     {
         switch (screenState)
         {
+            case ScreenState.disabled:
+                gameScreen.SetActive(false);
+                weaponSelectScreen.SetActive(false);
+                gunsmithScreen.SetActive(false);
+                attachmentSelectionScreen.SetActive(false);
+                break;
+
             case ScreenState.playing:
                 gameScreen.SetActive(true);
                 weaponSelectScreen.SetActive(false);
@@ -151,21 +171,33 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void OpenWeaponSelection()
     {
+        //set the screen state to the weapon selection screen and create all weapon buttons
         screenState = ScreenState.selectWeapon;
-
         PopulateWeaponSelectButtons();
     }
 
     /// <summary>
-    /// Opens the gunsmith UI menu for the player
+    /// Opens the gunsmith with the appropriate weapon for the player
     /// </summary>
     public void OpenGunsmith(GameObject weaponSelected)
     {
-        Debug.Log("Opened Gunsmith");
+        //switch player screen to the gunsmith screen
+        screenState = ScreenState.gunsmith;
 
         //get weapon selected
 
         //open gunsmith with correct weapon
+        //spawn the selected weapon at 0,0,0
+        Instantiate(weaponSelected, Vector3.zero, weaponSelected.transform.rotation);
+
+        //change the name to weapons name to remove (Clone)
+        weaponSelected.name = weaponSelected.GetComponent<Weapon>().weaponName;
+
+        //change all text and values of gunsmith UI elements
+        gsWeaponTypeNameText.text = weaponSelected.GetComponent<Weapon>().weaponType;
+        gsWeaponNameText.text = weaponSelected.GetComponent<Weapon>().weaponName;
+        gsAmmoText.text = weaponSelected.GetComponent<Weapon>().magSize.ToString();
+        gsAmmoReserveText.text = weaponSelected.GetComponent<Weapon>().reserveAmmoSize.ToString();
     }
 
     /// <summary>
@@ -181,7 +213,12 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void OpenAttachmentList()
     {
+        //set the screen state to the weapon selection screen and create all weapon buttons
+        screenState = ScreenState.attachmentSelection;
 
+        //switch camera perspective
+
+        //PopulateAttachmentList();
     }
 
     /// <summary>
@@ -189,7 +226,8 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void CloseAttachmentList()
     {
-
+        //set screen back to gunsmith screen
+        screenState = ScreenState.gunsmith;
     }
 
     /// <summary>
@@ -198,7 +236,29 @@ public class UIManager : MonoBehaviour
     /// <param name="weapon"> the weapon that the player is equiping attachments to </param>
     public void PopulateAttachmentList(GameObject weapon)
     {
+        ////spawn as many buttons as there are weapons
+        //for (int x = 0; x < GunsmithManager.Instance.weapons.Length; x++)
+        //{
+        //    //spawn a new button at the appropriate spawn location and reference to the buttons attached script
+        //    GameObject newButton = Instantiate(newWeaponButtonPrefab, weaponButtonSpawnLoc.transform.position, weaponButtonSpawnLoc.transform.rotation);
+        //    NewWeaponButton newButtonScript = newButton.GetComponent<NewWeaponButton>();
 
+        //    //Set new buttons parent as the weapon select screen
+        //    newButton.transform.SetParent(weaponSelectScreen.transform);
+
+        //    //set all button values
+        //    newButtonScript.weapon = GunsmithManager.Instance.weapons[x].gameObject;
+        //    newButtonScript.buttonWeaponTypeText.text = GunsmithManager.Instance.weapons[x].GetComponent<Weapon>().weaponType;
+        //    //ADD MODIFICATIONS WITH SWITCH ON THE WEAPONS MODIFICATIONS INT VALUE (SET ACTIVE)
+        //    newButtonScript.buttonWeaponImage.sprite = GunsmithManager.Instance.weapons[x].GetComponent<Weapon>().icon;
+        //    newButtonScript.buttonWeaponNameText.text = GunsmithManager.Instance.weapons[x].GetComponent<Weapon>().weaponName;
+
+        //    //increase and move x spawn location for next button spawn
+        //    weaponButtonSpawnLoc.transform.position = new Vector3(weaponButtonSpawnLoc.transform.position.x + 300f, weaponButtonSpawnLoc.transform.position.y, weaponButtonSpawnLoc.transform.position.z);
+        //}
+
+        ////reset the button spawn location to its original spot
+        //weaponButtonSpawnLoc.transform.position = _weaponButtonSpawnLoc;
     }
 
     /// <summary>
@@ -276,9 +336,45 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// Enlarges and changes the color of the attachment slot button
     /// </summary>
-    public void OnAttachmentSlotHighlight()
+    public void OnAttachmentSlotEnter(GameObject attachmentSlot)
     {
 
+    }
+
+    /// <summary>
+    /// Set the attachment slot size back to normal and changes the color of the attachment slot button back to normal
+    /// </summary>
+    public void OnAttachmentSlotExit(GameObject attachmentSlot)
+    {
+
+    }
+
+    /// <summary>
+    /// display the attachment type, name, description, pros, and cons when the attachment button is hovered over
+    /// </summary>
+    public void OnAttachmentButtonEnter(GameObject attachment)
+    {
+        //enable the attachment info panel when hovering over an attachment selection
+        attachmentInfoPanel.SetActive(true);
+
+        //display the attachment type, name, description, pros, and cons
+        attachmentTypeText.text = attachment.GetComponent<AttachmentData>().attachmentType;
+        attachmentNameText.text = attachment.GetComponent<AttachmentData>().attachmentName;
+        attachmentDescriptionText.text = attachment.GetComponent<AttachmentData>().description;
+        prosText.text = attachment.GetComponent<AttachmentData>().pros;
+        consText.text = attachment.GetComponent<AttachmentData>().cons;
+
+        //adjust stat bars given attachment attributes
+
+    }
+
+    /// <summary>
+    /// hide the attachment type, name, description, pros, and cons when the attachment button is hovered over
+    /// </summary>
+    public void OnAttachmentButtonExit(GameObject attachment)
+    {
+        //disable the attachment info panel when not hovering over an attachment selection
+        attachmentInfoPanel.SetActive(false);
     }
 
     /// <summary>

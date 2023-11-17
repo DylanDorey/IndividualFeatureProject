@@ -9,5 +9,11 @@ using UnityEngine;
  */
 public class MCW : Weapon
 {
-
+    private void Start()
+    {
+        for (int index = 0; index < weaponAttachments.Length; index++)
+        {
+            weaponAttachments[index] = null;
+        }
+    }
 }
