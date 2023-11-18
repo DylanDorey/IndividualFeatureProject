@@ -25,6 +25,16 @@ public class Weapon : MonoBehaviour
     public GameObject adsLowLocation;
     public Vector3 adsHighLocation;
 
+    //all gunsmith attachment slot camera locations
+    public Transform opticCamPos;
+    public Transform laserCamPos;
+    public Transform barrelCamPos;
+    public Transform muzzleCamPos;
+    public Transform gripCamPos;
+    public Transform magazineCamPos;
+    public Transform rearGripCamPos;
+    public Transform stockCamPos;
+
     //audio clips for weapon
     public AudioClip fireSound;
 

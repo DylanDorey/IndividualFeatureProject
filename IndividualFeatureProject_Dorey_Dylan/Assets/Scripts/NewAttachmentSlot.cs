@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
  * [This will make the attachment slots bigger and smaller on mouse enter/exit]
  */
 
-public class NewAttachmentSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class NewAttachmentSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     //attachment the player selects to put in this slot
     public GameObject attachmentInSlot;
@@ -32,6 +32,15 @@ public class NewAttachmentSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
             //make the image inside of the button the empty slot sprite
             slotImageRef.GetComponent<Image>().sprite = emptySlotImage;
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        //Move the camera to the appropriate location
+        CameraManager.Instance.MoveCamToPos(attachmentType);
+
+        //Open the attachment list
+        UIManager.Instance.OpenAttachmentList();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -216,8 +216,6 @@ public class UIManager : MonoBehaviour
         //set the screen state to the weapon selection screen and create all weapon buttons
         screenState = ScreenState.attachmentSelection;
 
-        //switch camera perspective
-
         //PopulateAttachmentList();
     }
 
@@ -411,5 +409,8 @@ public class UIManager : MonoBehaviour
     {
         //set the screen state back to gunsmith
         screenState = ScreenState.gunsmith;
+
+        //Move camera back to default gunsmith camera position
+        CameraManager.Instance.MoveCamBack();
     }
 }

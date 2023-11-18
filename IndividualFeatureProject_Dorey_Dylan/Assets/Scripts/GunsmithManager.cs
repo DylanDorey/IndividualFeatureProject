@@ -96,7 +96,12 @@ public class GunsmithManager : MonoBehaviour
         //return to gunsmith screen
         UIManager.Instance.screenState = ScreenState.gunsmith;
 
-
+        //if the gunsmith camera is not already at its default position
+        if (CameraManager.Instance.gunsmithCam.transform.position != CameraManager.Instance.defaultCamPos)
+        {
+            //move it to its default position
+            CameraManager.Instance.MoveCamBack();
+        }
     }
 
     /// <summary>
