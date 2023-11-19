@@ -234,29 +234,27 @@ public class UIManager : MonoBehaviour
     /// <param name="weapon"> the weapon that the player is equiping attachments to </param>
     public void PopulateAttachmentList(GameObject weapon)
     {
-        ////spawn as many buttons as there are weapons
-        //for (int x = 0; x < GunsmithManager.Instance.weapons.Length; x++)
-        //{
-        //    //spawn a new button at the appropriate spawn location and reference to the buttons attached script
-        //    GameObject newButton = Instantiate(newWeaponButtonPrefab, weaponButtonSpawnLoc.transform.position, weaponButtonSpawnLoc.transform.rotation);
-        //    NewWeaponButton newButtonScript = newButton.GetComponent<NewWeaponButton>();
+        //spawn as many buttons as there are attachments for the attachment type
+        //for (int x = 0; x < ; x++)
+        {
+            //spawn a new button at the appropriate spawn location and reference to the buttons attached script
+            GameObject newButton = Instantiate(newAttachmentButtonPrefab, attachmentButtonSpawnLoc.transform.position, attachmentButtonSpawnLoc.transform.rotation);
+            NewAttachmentButton newButtonScript = newButton.GetComponent<NewAttachmentButton>();
 
-        //    //Set new buttons parent as the weapon select screen
-        //    newButton.transform.SetParent(weaponSelectScreen.transform);
+            //Set new buttons parent as the weapon select screen
+            newButton.transform.SetParent(attachmentSelectionScreen.transform);
 
-        //    //set all button values
-        //    newButtonScript.weapon = GunsmithManager.Instance.weapons[x].gameObject;
-        //    newButtonScript.buttonWeaponTypeText.text = GunsmithManager.Instance.weapons[x].GetComponent<Weapon>().weaponType;
-        //    //ADD MODIFICATIONS WITH SWITCH ON THE WEAPONS MODIFICATIONS INT VALUE (SET ACTIVE)
-        //    newButtonScript.buttonWeaponImage.sprite = GunsmithManager.Instance.weapons[x].GetComponent<Weapon>().icon;
-        //    newButtonScript.buttonWeaponNameText.text = GunsmithManager.Instance.weapons[x].GetComponent<Weapon>().weaponName;
+            //set all button values
+            //newButtonScript.attachment = 
+            //newButtonScript.attachmentImage.sprite = 
+            //newButtonScript.attachmentName = 
 
-        //    //increase and move x spawn location for next button spawn
-        //    weaponButtonSpawnLoc.transform.position = new Vector3(weaponButtonSpawnLoc.transform.position.x + 300f, weaponButtonSpawnLoc.transform.position.y, weaponButtonSpawnLoc.transform.position.z);
-        //}
+            //increase and move x spawn location for next button spawn
+            attachmentButtonSpawnLoc.transform.position = new Vector3(attachmentButtonSpawnLoc.transform.position.x + 200f, attachmentButtonSpawnLoc.transform.position.y, attachmentButtonSpawnLoc.transform.position.z);
+        }
 
-        ////reset the button spawn location to its original spot
-        //weaponButtonSpawnLoc.transform.position = _weaponButtonSpawnLoc;
+        //reset the button spawn location to its original spot
+        attachmentButtonSpawnLoc.transform.position = _attachmentButtonSpawnLoc;
     }
 
     /// <summary>

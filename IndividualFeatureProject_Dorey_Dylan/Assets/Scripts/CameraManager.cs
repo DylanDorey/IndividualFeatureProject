@@ -17,8 +17,10 @@ public class CameraManager : MonoBehaviour
     //reference to gunsmith camera
     public Camera gunsmithCam;
 
-    //easing amount for camera movement
-    public float cameraEasingMultiplier = 0.5f;
+    //bool to determine if the camera has been rotated at all
+    private bool isRotatedLeft = false;
+    private bool isRotatedRight = false;
+
 
     //base camera position to return to
     public Vector3 defaultCamPos = new Vector3(0f, 0f, -0.65f);
@@ -47,29 +49,38 @@ public class CameraManager : MonoBehaviour
         switch (attachmentType)
         {
             case "optic":
-                gunsmithCam.transform.position = Vector3.Lerp(gunsmithCam.transform.position, GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().opticCamPos.position, cameraEasingMultiplier);
+                gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().opticCamPos.position;
                 gunsmithCam.transform.Rotate(0f, -45f, 0f);
+                isRotatedLeft = true;
                 break;
             case "laser":
-                gunsmithCam.transform.position = Vector3.Lerp(gunsmithCam.transform.position, GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().laserCamPos.position, cameraEasingMultiplier);
+                gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().laserCamPos.position;
+                gunsmithCam.transform.Rotate(0f, 45f, 0f);
+                isRotatedRight = true;
                 break;
             case "barrel":
-                gunsmithCam.transform.position = Vector3.Lerp(gunsmithCam.transform.position, GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().barrelCamPos.position, cameraEasingMultiplier);
+                gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().barrelCamPos.position;
                 break;
             case "muzzle":
-                gunsmithCam.transform.position = Vector3.Lerp(gunsmithCam.transform.position, GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().muzzleCamPos.position, cameraEasingMultiplier);
+                gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().muzzleCamPos.position;
+                gunsmithCam.transform.Rotate(0f, 45f, 0f);
+                isRotatedRight = true;
                 break;
             case "grip":
-                gunsmithCam.transform.position = Vector3.Lerp(gunsmithCam.transform.position, GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().gripCamPos.position, cameraEasingMultiplier);
+                gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().gripCamPos.position;
                 break;
             case "magazine":
-                gunsmithCam.transform.position = Vector3.Lerp(gunsmithCam.transform.position, GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().magazineCamPos.position, cameraEasingMultiplier);
+                gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().magazineCamPos.position;
+                gunsmithCam.transform.Rotate(0f, 45f, 0f);
+                isRotatedRight = true;
                 break;
             case "rearGrip":
-                gunsmithCam.transform.position = Vector3.Lerp(gunsmithCam.transform.position, GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().rearGripCamPos.position, cameraEasingMultiplier);
+                gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().rearGripCamPos.position;
                 break;
             case "stock":
-                gunsmithCam.transform.position = Vector3.Lerp(gunsmithCam.transform.position, GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().stockCamPos.position, cameraEasingMultiplier);
+                gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().stockCamPos.position;
+                gunsmithCam.transform.Rotate(0f, 45f, 0f);
+                isRotatedRight = true;
                 break;
             default:
                 gunsmithCam.transform.position = defaultCamPos;
@@ -84,6 +95,19 @@ public class CameraManager : MonoBehaviour
     {
         //move the gunsmith camera back to the default camera position
         gunsmithCam.transform.position = defaultCamPos;
-        gunsmithCam.transform.Rotate(0f, 45f, 0f);
+
+        //if the camera is rotated left or right
+        if(isRotatedLeft)
+        {
+            //rotate it back to default rotation
+            gunsmithCam.transform.Rotate(0f, 45f, 0f);
+            isRotatedLeft = false;
+        }
+        else if (isRotatedRight)
+        {
+            //rotate it back to default rotation
+            gunsmithCam.transform.Rotate(0f, -45f, 0f);
+            isRotatedRight = false;
+        }
     }
 }
