@@ -72,6 +72,46 @@ public class GunsmithManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Opens the gunsmith attachment UI menu for the player
+    /// </summary>
+    public void OpenAttachmentList(string attachmentType)
+    {
+        //set the screen state to the weapon selection screen and create all weapon buttons
+        UIManager.Instance.screenState = ScreenState.attachmentSelection;
+
+        PopulateAttachmentList();
+    }
+
+
+    /// <summary>
+    /// populates the screen with attachments for the player to select from for their weapon
+    /// </summary>
+    /// <param name="weapon"> the weapon that the player is equiping attachments to </param>
+    public void PopulateAttachmentList(GameObject[] currentAttachmentType)
+    {
+        //spawn as many buttons as there are attachments for the attachment type
+        for (int x = 0; x < currentAttachmentType.Length; x++)
+        {
+            //spawn a new button at the appropriate spawn location and reference to the buttons attached script
+            GameObject newButton = Instantiate(UIManager.Instance.newAttachmentButtonPrefab, UIManager.Instance.attachmentButtonSpawnLoc.transform.position, UIManager.Instance.attachmentButtonSpawnLoc.transform.rotation);
+            NewAttachmentButton newButtonScript = newButton.GetComponent<NewAttachmentButton>();
+
+            //Set new buttons parent as the weapon select screen
+            newButton.transform.SetParent(UIManager.Instance.attachmentSelectionScreen.transform);
+
+            newButtonScript.attachment = currentGSWeapon.GetComponent<Weapon>().currentAttachmentType[x];
+            newButtonScript.attachmentImage = currentGSWeapon.GetComponent<Weapon>().currentAttachmentType[x].GetComponent<AttachmentData>().icon;
+            newButtonScript.attachmentName.text = currentGSWeapon.GetComponent<Weapon>().currentAttachmentType[x].GetComponent<AttachmentData>().name;
+
+            //increase and move x spawn location for next button spawn
+            UIManager.Instance.attachmentButtonSpawnLoc.transform.position = new Vector3(UIManager.Instance.attachmentButtonSpawnLoc.transform.position.x + 200f, UIManager.Instance.attachmentButtonSpawnLoc.transform.position.y, UIManager.Instance.attachmentButtonSpawnLoc.transform.position.z);
+        }
+
+        //reset the button spawn location to its original spot
+        UIManager.Instance.attachmentButtonSpawnLoc.transform.position = UIManager.Instance._attachmentButtonSpawnLoc;
+    }
+
+    /// <summary>
     /// equips an attachment from the attachment list onto the players weapon
     /// </summary>
     /// <param name="attachment"> the attachment the player selects to equip onto their weapon </param>

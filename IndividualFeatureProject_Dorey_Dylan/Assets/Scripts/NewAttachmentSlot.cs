@@ -40,7 +40,7 @@ public class NewAttachmentSlot : MonoBehaviour, IPointerDownHandler, IPointerEnt
         CameraManager.Instance.MoveCamToPos(attachmentType);
 
         //Open the attachment list
-        UIManager.Instance.OpenAttachmentList();
+        GunsmithManager.Instance.OpenAttachmentList(attachmentType);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

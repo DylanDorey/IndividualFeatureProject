@@ -26,14 +26,17 @@ public class Weapon : MonoBehaviour
     public Vector3 adsHighLocation;
 
     //all gunsmith attachment slot camera locations
-    public Transform opticCamPos;
-    public Transform laserCamPos;
-    public Transform barrelCamPos;
-    public Transform muzzleCamPos;
-    public Transform gripCamPos;
-    public Transform magazineCamPos;
-    public Transform rearGripCamPos;
-    public Transform stockCamPos;
+    public Transform opticCamPos, laserCamPos, barrelCamPos, muzzleCamPos, gripCamPos, magazineCamPos, rearGripCamPos, stockCamPos;
+
+    //various attachment arrays
+    public GameObject[] optics;
+    public GameObject[] lasers;
+    public GameObject[] barrels;
+    public GameObject[] muzzles;
+    public GameObject[] grips;
+    public GameObject[] magazines;
+    public GameObject[] rearGrips;
+    public GameObject[] stocks;
 
     //audio clips for weapon
     public AudioClip fireSound;
@@ -51,7 +54,7 @@ public class Weapon : MonoBehaviour
     public GameObject bulletType;
 
     //attachments currently on the weapon
-    public GameObject[] weaponAttachments = new GameObject[9];
+    public GameObject[] weaponAttachments = new GameObject[8];
 
     /// <summary>
     /// Adds recoil to the weapon when shot based upon various attachment/weapon properties
