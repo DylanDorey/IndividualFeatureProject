@@ -21,9 +21,8 @@ public class CameraManager : MonoBehaviour
     private bool isRotatedLeft = false;
     private bool isRotatedRight = false;
 
-
     //base camera position to return to
-    public Vector3 defaultCamPos = new Vector3(0f, 0f, -0.65f);
+    public Vector3 defaultCamPos = new Vector3(0.375f, 1.5f, -0.65f);
 
     private void Awake()
     {

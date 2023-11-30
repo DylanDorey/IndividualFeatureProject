@@ -16,6 +16,12 @@ public class GunsmithManager : MonoBehaviour
     //the current weapon inside the gunsmith
     public GameObject currentGSWeapon;
 
+    //the current attachment the player is editing
+    public string currentEditingAttachment;
+
+    public int amountOfAttachments;
+    public GameObject[] attachmentArray;
+
     //the current weapon inside the gunsmith normal rotation
     public Quaternion originalWeaponRotation;
 
@@ -38,9 +44,6 @@ public class GunsmithManager : MonoBehaviour
     public GameObject rearGripSlot;
     public GameObject stockSlot;
 
-    //when the player is previewing their weapon
-    private bool isPreviewingWeapon;
-    private float rotateSpeed = 9.0f;
 
     private void Awake()
     {
@@ -63,23 +66,16 @@ public class GunsmithManager : MonoBehaviour
 
     private void Update()
     {
-        //if the screen state is disabled and isPreviewingWeapon is true
-        if (UIManager.Instance.screenState == ScreenState.disabled && isPreviewingWeapon)
-        {
-            //allow mouse movement
-            
-        }
+
     }
 
     /// <summary>
     /// Opens the gunsmith attachment UI menu for the player
     /// </summary>
-    public void OpenAttachmentList(string attachmentType)
+    public void OpenAttachmentList()
     {
         //set the screen state to the weapon selection screen and create all weapon buttons
         UIManager.Instance.screenState = ScreenState.attachmentSelection;
-
-        PopulateAttachmentList();
     }
 
 
@@ -87,10 +83,63 @@ public class GunsmithManager : MonoBehaviour
     /// populates the screen with attachments for the player to select from for their weapon
     /// </summary>
     /// <param name="weapon"> the weapon that the player is equiping attachments to </param>
-    public void PopulateAttachmentList(GameObject[] currentAttachmentType)
+    public void PopulateAttachmentList()
     {
+        //int amountOfAttachments;
+        //GameObject[] attachmentArray;
+
+        OpenAttachmentList();
+
+        //set the amount of attachments to populate depending on which slot the player selected
+        if(currentEditingAttachment == "optic")
+        {
+            amountOfAttachments = 3;
+            attachmentArray = currentGSWeapon.GetComponent<Weapon>().optics;
+        }
+        else if (currentEditingAttachment == "laser")
+        {
+            amountOfAttachments = 2;
+            attachmentArray = currentGSWeapon.GetComponent<Weapon>().lasers;
+        }
+        else if (currentEditingAttachment == "barrel")
+        {
+            amountOfAttachments = 3;
+            attachmentArray = currentGSWeapon.GetComponent<Weapon>().barrels;
+        }
+        else if (currentEditingAttachment == "muzzle")
+        {
+            amountOfAttachments = 2;
+            attachmentArray = currentGSWeapon.GetComponent<Weapon>().muzzles;
+        }
+        else if (currentEditingAttachment == "grip")
+        {
+            amountOfAttachments = 2;
+            attachmentArray = currentGSWeapon.GetComponent<Weapon>().grips;
+        }
+        else if (currentEditingAttachment == "magazine")
+        {
+            amountOfAttachments = 4;
+            attachmentArray = currentGSWeapon.GetComponent<Weapon>().magazines;
+        }
+        else if (currentEditingAttachment == "rearGrip")
+        {
+            amountOfAttachments = 3;
+            attachmentArray = currentGSWeapon.GetComponent<Weapon>().rearGrips;
+        }
+        else if (currentEditingAttachment == "stock")
+        {
+            amountOfAttachments = 3;
+            attachmentArray = currentGSWeapon.GetComponent<Weapon>().stocks;
+        }
+        else
+        {
+            //default
+            amountOfAttachments = 0;
+            attachmentArray = null;
+        }
+
         //spawn as many buttons as there are attachments for the attachment type
-        for (int x = 0; x < currentAttachmentType.Length; x++)
+        for (int x = 0; x < amountOfAttachments; x++)
         {
             //spawn a new button at the appropriate spawn location and reference to the buttons attached script
             GameObject newButton = Instantiate(UIManager.Instance.newAttachmentButtonPrefab, UIManager.Instance.attachmentButtonSpawnLoc.transform.position, UIManager.Instance.attachmentButtonSpawnLoc.transform.rotation);
@@ -99,9 +148,10 @@ public class GunsmithManager : MonoBehaviour
             //Set new buttons parent as the weapon select screen
             newButton.transform.SetParent(UIManager.Instance.attachmentSelectionScreen.transform);
 
-            newButtonScript.attachment = currentGSWeapon.GetComponent<Weapon>().currentAttachmentType[x];
-            newButtonScript.attachmentImage = currentGSWeapon.GetComponent<Weapon>().currentAttachmentType[x].GetComponent<AttachmentData>().icon;
-            newButtonScript.attachmentName.text = currentGSWeapon.GetComponent<Weapon>().currentAttachmentType[x].GetComponent<AttachmentData>().name;
+            //WORK HERE, try to get all three things to show up on the buttons once they populate
+            newButtonScript.attachment = attachmentArray[x].gameObject;
+            newButtonScript.attachmentImage = attachmentArray[x].GetComponent<AttachmentData>().icon;
+            newButtonScript.attachmentName.text = attachmentArray[x].GetComponent<AttachmentData>().name;
 
             //increase and move x spawn location for next button spawn
             UIManager.Instance.attachmentButtonSpawnLoc.transform.position = new Vector3(UIManager.Instance.attachmentButtonSpawnLoc.transform.position.x + 200f, UIManager.Instance.attachmentButtonSpawnLoc.transform.position.y, UIManager.Instance.attachmentButtonSpawnLoc.transform.position.z);
@@ -133,6 +183,40 @@ public class GunsmithManager : MonoBehaviour
     /// <param name="attachment"> the attachment the player selects to remove from their weapon </param>
     public void RemoveAttachment(GameObject attachment)
     {
+
+        if (currentEditingAttachment == "optic")
+        {
+            currentGSWeapon.GetComponent<Weapon>().weaponAttachments[0] = null;
+        }
+        else if (currentEditingAttachment == "laser")
+        {
+            currentGSWeapon.GetComponent<Weapon>().weaponAttachments[1] = null;
+        }
+        else if (currentEditingAttachment == "barrel")
+        {
+            currentGSWeapon.GetComponent<Weapon>().weaponAttachments[2] = null;
+        }
+        else if(currentEditingAttachment == "muzzle")
+        {
+            currentGSWeapon.GetComponent<Weapon>().weaponAttachments[3] = null;
+        }
+        else if (currentEditingAttachment == "grip")
+        {
+            currentGSWeapon.GetComponent<Weapon>().weaponAttachments[4] = null;
+        }
+        else if (currentEditingAttachment == "magazine")
+        {
+            currentGSWeapon.GetComponent<Weapon>().weaponAttachments[5] = null;
+        }
+        else if (currentEditingAttachment == "rearGrip")
+        {
+            currentGSWeapon.GetComponent<Weapon>().weaponAttachments[6] = null;
+        }
+        else if (currentEditingAttachment == "stock")
+        {
+            currentGSWeapon.GetComponent<Weapon>().weaponAttachments[7] = null;
+        }
+
         //return to gunsmith screen
         UIManager.Instance.screenState = ScreenState.gunsmith;
 
@@ -142,35 +226,6 @@ public class GunsmithManager : MonoBehaviour
             //move it to its default position
             CameraManager.Instance.MoveCamBack();
         }
-    }
-
-    /// <summary>
-    /// Allosw the player to spin the weapon around and disables UI
-    /// </summary>
-    public void EnterPreviewWeapon()
-    {
-        //set the original rotation value
-        originalWeaponRotation = currentGSWeapon.transform.rotation;
-
-        //disable the UI and set isPreviewingWeapon to true
-        UIManager.Instance.screenState = ScreenState.disabled;
-        isPreviewingWeapon = true;
-
-        //enable the mouse follow transform
-    }
-
-    /// <summary>
-    /// Allosw the player to spin the weapon around and disables UI
-    /// </summary>
-    public void ExitPreviewWeapon()
-    {
-        //enable the UI
-        UIManager.Instance.screenState = ScreenState.gunsmith;
-
-        isPreviewingWeapon = false;
-
-        //reset weapons rotation back to default
-        currentGSWeapon.transform.rotation = originalWeaponRotation;
     }
 
     /// <summary>

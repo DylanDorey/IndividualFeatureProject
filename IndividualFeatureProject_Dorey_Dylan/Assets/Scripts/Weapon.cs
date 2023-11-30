@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*
  * Author: [Dorey, Dylan]
- * Last Updated: [11/.............................../2023]
+ * Last Updated: [11/18/2023]
  * [Contains all weapon properties and base behaviors]
  */
 
@@ -21,10 +21,6 @@ public class Weapon : MonoBehaviour
     //Locations where all of the attachments will attach to on the weapon
     public GameObject opticLocation, laserLocation, barrelLocation, muzzleLocation, gripLocation, magazineLocation, rearGripLocation, stockLocation;
 
-    //Location where the weapon will interpolate to when aiming down sights
-    public GameObject adsLowLocation;
-    public Vector3 adsHighLocation;
-
     //all gunsmith attachment slot camera locations
     public Transform opticCamPos, laserCamPos, barrelCamPos, muzzleCamPos, gripCamPos, magazineCamPos, rearGripCamPos, stockCamPos;
 
@@ -38,9 +34,6 @@ public class Weapon : MonoBehaviour
     public GameObject[] rearGrips;
     public GameObject[] stocks;
 
-    //audio clips for weapon
-    public AudioClip fireSound;
-
     //all weapon properties
     public string weaponType, weaponName, weaponDescription;
     public Sprite icon;
@@ -51,24 +44,7 @@ public class Weapon : MonoBehaviour
 
     //ammo related properties
     public int magSize, reserveAmmoSize;
-    public GameObject bulletType;
 
     //attachments currently on the weapon
     public GameObject[] weaponAttachments = new GameObject[8];
-
-    /// <summary>
-    /// Adds recoil to the weapon when shot based upon various attachment/weapon properties
-    /// </summary>
-    public void AddRecoil()
-    {
-
-    }
-
-    /// <summary>
-    /// Affects the accuracy of the weapon when it is shot
-    /// </summary>
-    public void AffectAccuracy()
-    {
-
-    }
 }

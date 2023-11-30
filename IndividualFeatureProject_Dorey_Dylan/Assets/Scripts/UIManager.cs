@@ -188,7 +188,7 @@ public class UIManager : MonoBehaviour
 
         //open gunsmith with correct weapon
         //spawn the selected weapon at 0,0,0
-        Instantiate(weaponSelected, Vector3.zero, weaponSelected.transform.rotation);
+        Instantiate(weaponSelected, new Vector3(0, -2, 0), weaponSelected.transform.rotation);
 
         //change the name to weapons name to remove (Clone)
         weaponSelected.name = weaponSelected.GetComponent<Weapon>().weaponName;
