@@ -48,7 +48,6 @@ public class GunsmithManager : MonoBehaviour
     //list of attachment buttons
     public List<GameObject> attachmentListButtons = new List<GameObject>();
 
-
     private void Awake()
     {
         //if _instance contains something and it isn't this
@@ -172,6 +171,15 @@ public class GunsmithManager : MonoBehaviour
     public void EquipAttachment(GameObject attachment)
     {
         //---------------------------------^ use this variable for the attachment/access the attachment items like attachment icon, name, AttachmentData script, etc (look at NewAttachmentButton script)
+        //move camera back to original position
+        CameraManager.Instance.MoveCamBack();
+
+        //change screen state back to gunsmith
+        UIManager.Instance.screenState = ScreenState.gunsmith;
+
+        //set attachment in slot
+
+
         //change attachment slot color
 
         //change attachment slot image
@@ -187,7 +195,6 @@ public class GunsmithManager : MonoBehaviour
     /// </summary>
     public void RemoveAttachment()
     {
-
         if (currentEditingAttachment == "optic")
         {
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[0] = null;
@@ -252,5 +259,6 @@ public class GunsmithManager : MonoBehaviour
             //destroy the buttons that are present
             Destroy(button);
         }
+        attachmentListButtons.Clear();
     }
 }

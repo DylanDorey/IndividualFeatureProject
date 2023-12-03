@@ -108,8 +108,9 @@ public class UIManager : MonoBehaviour
             _instance = this;
         }
 
-        //initialize the original weaponButtonSpawn location
+        //initialize the original weaponButtonSpawn and attachmentButtonSpawn location
         _weaponButtonSpawnLoc = weaponButtonSpawnLoc.transform.position;
+        _attachmentButtonSpawnLoc = attachmentButtonSpawnLoc.transform.position;
     }
 
     private void Start()
@@ -208,17 +209,6 @@ public class UIManager : MonoBehaviour
 
     }
 
-    ///// <summary>
-    ///// Opens the gunsmith attachment UI menu for the player
-    ///// </summary>
-    //public void OpenAttachmentList(string attachmentType)
-    //{
-    //    //set the screen state to the weapon selection screen and create all weapon buttons
-    //    screenState = ScreenState.attachmentSelection;
-
-    //    GunsmithManager.Instance.PopulateAttachmentList(attachmentType);
-    //}
-
     /// <summary>
     /// Closes the gunsmith attachment UI menu for the player
     /// </summary>
@@ -227,35 +217,6 @@ public class UIManager : MonoBehaviour
         //set screen back to gunsmith screen
         screenState = ScreenState.gunsmith;
     }
-
-    ///// <summary>
-    ///// populates the screen with attachments for the player to select from for their weapon
-    ///// </summary>
-    ///// <param name="weapon"> the weapon that the player is equiping attachments to </param>
-    //public void PopulateAttachmentList(GameObject weapon)
-    //{
-    //    //spawn as many buttons as there are attachments for the attachment type
-    //    //for (int x = 0; x < ; x++)
-    //    {
-    //        //spawn a new button at the appropriate spawn location and reference to the buttons attached script
-    //        GameObject newButton = Instantiate(newAttachmentButtonPrefab, attachmentButtonSpawnLoc.transform.position, attachmentButtonSpawnLoc.transform.rotation);
-    //        NewAttachmentButton newButtonScript = newButton.GetComponent<NewAttachmentButton>();
-
-    //        //Set new buttons parent as the weapon select screen
-    //        newButton.transform.SetParent(attachmentSelectionScreen.transform);
-
-    //        //set all button values
-    //        //newButtonScript.attachment = 
-    //        //newButtonScript.attachmentImage.sprite = 
-    //        //newButtonScript.attachmentName = 
-
-    //        //increase and move x spawn location for next button spawn
-    //        attachmentButtonSpawnLoc.transform.position = new Vector3(attachmentButtonSpawnLoc.transform.position.x + 200f, attachmentButtonSpawnLoc.transform.position.y, attachmentButtonSpawnLoc.transform.position.z);
-    //    }
-
-    //    //reset the button spawn location to its original spot
-    //    attachmentButtonSpawnLoc.transform.position = _attachmentButtonSpawnLoc;
-    //}
 
     /// <summary>
     /// populates the weapon select screen with appropriate amount of weapons to choose from

@@ -5352,7 +5352,7 @@ Transform:
   m_GameObject: {fileID: 670856611}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.375, y: 0, z: -0.65}
+  m_LocalPosition: {x: 0.2, y: 0, z: -0.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5415,7 +5415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunsmithCam: {fileID: 670856613}
-  defaultCamPos: {x: 0, y: 0, z: -0.65}
+  defaultCamPos: {x: 0.2, y: 0, z: -0.65}
 --- !u!1 &671486354
 GameObject:
   m_ObjectHideFlags: 0
@@ -6927,7 +6927,7 @@ Transform:
   m_GameObject: {fileID: 758679200}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10.21}
+  m_LocalPosition: {x: 0, y: 0, z: -1.02}
   m_LocalScale: {x: 12, y: 6, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17339,6 +17339,7 @@ GameObject:
   - component: {fileID: 6740843528150065272}
   - component: {fileID: 5981549690301290940}
   - component: {fileID: 3192562914926988382}
+  - component: {fileID: 6740843528150065273}
   m_Layer: 0
   m_Name: laser1
   m_TagString: Untagged
@@ -17418,6 +17419,7 @@ GameObject:
   - component: {fileID: 4663985737524269504}
   - component: {fileID: 350041510628669389}
   - component: {fileID: 1828941312094761435}
+  - component: {fileID: 4663985737524269505}
   m_Layer: 0
   m_Name: highcaliber_magazine
   m_TagString: Untagged
@@ -17436,6 +17438,7 @@ GameObject:
   - component: {fileID: 7702412659639051966}
   - component: {fileID: 8801285521973550200}
   - component: {fileID: 5457612054515121506}
+  - component: {fileID: 8801285521973550201}
   m_Layer: 0
   m_Name: extended_magazine
   m_TagString: Untagged
@@ -17594,6 +17597,7 @@ GameObject:
   - component: {fileID: 8727003861189335993}
   - component: {fileID: 6585873308032542601}
   - component: {fileID: 8752607842389382289}
+  - component: {fileID: 8752607842389382290}
   m_Layer: 0
   m_Name: std_stock
   m_TagString: Untagged
@@ -17708,6 +17712,7 @@ GameObject:
   - component: {fileID: 3733936584142479376}
   - component: {fileID: 3906855202287427443}
   - component: {fileID: 7959259078200796300}
+  - component: {fileID: 7959259078200796301}
   m_Layer: 0
   m_Name: none_stock
   m_TagString: Untagged
@@ -17741,6 +17746,7 @@ GameObject:
   - component: {fileID: 855311100377623543}
   - component: {fileID: 8200087652280430976}
   - component: {fileID: 6202687520949171096}
+  - component: {fileID: 8200087652280430977}
   m_Layer: 0
   m_Name: tactile_reargrip
   m_TagString: Untagged
@@ -17827,6 +17833,7 @@ GameObject:
   - component: {fileID: 983011755349067745}
   - component: {fileID: 8559104945448735957}
   - component: {fileID: 3119023878294642356}
+  - component: {fileID: 8559104945448735958}
   m_Layer: 0
   m_Name: std_magazine
   m_TagString: Untagged
@@ -17845,6 +17852,7 @@ GameObject:
   - component: {fileID: 3438742815815406075}
   - component: {fileID: 4118198101833590228}
   - component: {fileID: 641259418267903228}
+  - component: {fileID: 4118198101833590229}
   m_Layer: 0
   m_Name: laser2
   m_TagString: Untagged
@@ -18336,6 +18344,7 @@ GameObject:
   - component: {fileID: 2621062962383920669}
   - component: {fileID: 1867746891806652305}
   - component: {fileID: 919904712022838941}
+  - component: {fileID: 3201808319077230256}
   m_Layer: 0
   m_Name: lightweight_magazine
   m_TagString: Untagged
@@ -18343,6 +18352,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &3201808319077230256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3201808319077230255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: magazine
+  attachmentName: Lightweight Mag
+  description: A lighter weight magazine that allows the player to move quicker,
+    but has less ammunition.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!1 &3215432197587676086
 GameObject:
   m_ObjectHideFlags: 0
@@ -18354,6 +18389,7 @@ GameObject:
   - component: {fileID: 5510084777661686589}
   - component: {fileID: 2572655991625221437}
   - component: {fileID: 2546660298724001564}
+  - component: {fileID: 5510084777661686590}
   m_Layer: 0
   m_Name: sticky_reargrip
   m_TagString: Untagged
@@ -18402,6 +18438,7 @@ GameObject:
   - component: {fileID: 4924163167323147322}
   - component: {fileID: 5048630634539863091}
   - component: {fileID: 7461134299778836732}
+  - component: {fileID: 7461134299778836733}
   m_Layer: 0
   m_Name: stubby_foregrip
   m_TagString: Untagged
@@ -18481,6 +18518,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624257585516381906}
   m_Mesh: {fileID: 2837884204815340676, guid: 4c553dbda092c674aa6688acd6b3b140, type: 3}
+--- !u!114 &4118198101833590229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624257585516381906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: laser
+  attachmentName: Flashlight
+  description: Emits light that can illuminate darker areas and blind enemies.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!33 &4156180645677265192
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18500,6 +18562,7 @@ GameObject:
   - component: {fileID: 5473075161902481192}
   - component: {fileID: 5979608781045778229}
   - component: {fileID: 2044289308757963959}
+  - component: {fileID: 5979608781045778230}
   m_Layer: 0
   m_Name: supressor_muzzle
   m_TagString: Untagged
@@ -18588,6 +18651,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4957620033583636684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4663985737524269505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460218839255666555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: magazine
+  attachmentName: High Caliber
+  description: A smaller sized magazine equipped with high caliber rounds that do
+    more damage.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!4 &4798073459302690372
 Transform:
   m_ObjectHideFlags: 0
@@ -18614,6 +18703,7 @@ GameObject:
   - component: {fileID: 1230292864585637296}
   - component: {fileID: 2602669340652986074}
   - component: {fileID: 5699725848551512683}
+  - component: {fileID: 5699725848551512684}
   m_Layer: 0
   m_Name: precision_stock
   m_TagString: Untagged
@@ -18719,9 +18809,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  attachmentType: 
-  attachmentName: 
-  description: 
+  attachmentType: barrel
+  attachmentName: Short Barrel
+  description: A shorter barrel that allows for better movement speed and hipfire
+    accuracy.
   pros: 
   cons: 
   damageChange: 0
@@ -18803,6 +18894,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 391374191688517743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5510084777661686590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215432197587676086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: rearGrip
+  attachmentName: Sticky Rear Grip
+  description: A stickier rear grip that gives the player more stability and control
+    of the weapon while firing.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!23 &5699725848551512683
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18845,6 +18962,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5699725848551512684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4844304577209343070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: stock
+  attachmentName: Precision Stock
+  description: A stock that gives the player more weapon stability and accuracy while
+    aiming down sights.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!23 &5854663335081510791
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18914,6 +19057,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4177336563262290711}
   m_Mesh: {fileID: 3746478544495440149, guid: 4c553dbda092c674aa6688acd6b3b140, type: 3}
+--- !u!114 &5979608781045778230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177336563262290711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: muzzle
+  attachmentName: Suppressor
+  description: Makes firing the weapon quieter and keeps them hidden on the minimap.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!33 &5981549690301290940
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18933,6 +19101,7 @@ GameObject:
   - component: {fileID: 654250291291131907}
   - component: {fileID: 4116425965551772347}
   - component: {fileID: 1519598860429743018}
+  - component: {fileID: 6091506175671468883}
   m_Layer: 0
   m_Name: std_reargrip
   m_TagString: Untagged
@@ -18940,6 +19109,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &6091506175671468883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091506175671468882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: rearGrip
+  attachmentName: Standard Rear Grip
+  description: The standard rear grip that comes with the weapon from tthe factory.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!4 &6120968253133208859
 Transform:
   m_ObjectHideFlags: 0
@@ -19025,6 +19219,7 @@ GameObject:
   - component: {fileID: 4548504113842094915}
   - component: {fileID: 4156180645677265192}
   - component: {fileID: 1689360338288608902}
+  - component: {fileID: 6228531894616177866}
   m_Layer: 0
   m_Name: compensator_muzzle
   m_TagString: Untagged
@@ -19032,6 +19227,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &6228531894616177866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6228531894616177865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: muzzle
+  attachmentName: Compensator
+  description: Allows for less recoil during sustained fire and gives the player
+    less muzzle flash.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!33 &6585873308032542601
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19070,6 +19291,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1850427697571635007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6740843528150065273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28610302301712583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: laser
+  attachmentName: Pec Box
+  description: A powerful laser that allows for better accuracy at close range.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!1 &6839544406328507634
 GameObject:
   m_ObjectHideFlags: 0
@@ -19081,6 +19327,7 @@ GameObject:
   - component: {fileID: 6120968253133208859}
   - component: {fileID: 7747995449021375746}
   - component: {fileID: 7561280883040792734}
+  - component: {fileID: 7747995449021375747}
   m_Layer: 0
   m_Name: angled_foregrip
   m_TagString: Untagged
@@ -19239,6 +19486,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7461134299778836733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823053045728858441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: grip
+  attachmentName: Stubby Foregrip
+  description: A smalled foregrip that makes the weapon sway minimal and hipfire
+    recoild more manageable.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!23 &7556051575093696504
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19480,6 +19753,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6839544406328507634}
   m_Mesh: {fileID: -7669043220738398548, guid: 4c553dbda092c674aa6688acd6b3b140, type: 3}
+--- !u!114 &7747995449021375747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6839544406328507634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: grip
+  attachmentName: Angled Foregrip
+  description: An angled foregrip that allows for better recoil control and weapon
+    stability.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!1 &7867466525464102956
 GameObject:
   m_ObjectHideFlags: 0
@@ -19512,9 +19811,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  attachmentType: 
-  attachmentName: 
-  description: 
+  attachmentType: barrel
+  attachmentName: Long Barrel
+  description: A longer barrel which allows for better range and accuracy.
   pros: 
   cons: 
   damageChange: 0
@@ -19566,6 +19865,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7959259078200796301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141041328147308987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: stock
+  attachmentName: No Stock
+  description: Removes the stock from the weapon allowing for better manueverability,
+    but less control of the weapon.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!33 &8200087652280430976
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19574,6 +19899,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373612035164675906}
   m_Mesh: {fileID: 2466204443764419222, guid: 4c553dbda092c674aa6688acd6b3b140, type: 3}
+--- !u!114 &8200087652280430977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373612035164675906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: rearGrip
+  attachmentName: Tactile Rear Grip
+  description: A rear grip that allows the player to move quicker and aim down sights
+    at a significantly higher rate.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!1 &8256913804821034354
 GameObject:
   m_ObjectHideFlags: 0
@@ -19598,6 +19949,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609167482971839725}
   m_Mesh: {fileID: -4051298013275105392, guid: 4c553dbda092c674aa6688acd6b3b140, type: 3}
+--- !u!114 &8559104945448735958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609167482971839725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: magazine
+  attachmentName: Standard Magazine
+  description: The standard issue magazine that comes with the weapon from the factory.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!33 &8725238947727424454
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19704,6 +20080,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8752607842389382290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664328415040109376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: stock
+  attachmentName: Standard Stock
+  description: The stock that comes with the weapon from the factory.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!33 &8801285521973550200
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19712,6 +20113,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491260569891605632}
   m_Mesh: {fileID: -7140443521818723334, guid: 4c553dbda092c674aa6688acd6b3b140, type: 3}
+--- !u!114 &8801285521973550201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491260569891605632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  attachmentType: magazine
+  attachmentName: Extended Magazine
+  description: A magazine that holds significantly more ammo allowing for longer
+    fire duration.
+  pros: 
+  cons: 
+  damageChange: 0
+  fireRateChange: 0
+  rangeChange: 0
+  accuracyChange: 0
+  recoilControlChange: 0
+  mobilityChange: 0
+  handlingChange: 0
 --- !u!1 &8933396351317626287
 GameObject:
   m_ObjectHideFlags: 0
@@ -19760,9 +20187,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  attachmentType: 
-  attachmentName: 
-  description: 
+  attachmentType: barrel
+  attachmentName: Standard Barrel
+  description: Factory issued barrel that is produced with the weapon.
   pros: 
   cons: 
   damageChange: 0
