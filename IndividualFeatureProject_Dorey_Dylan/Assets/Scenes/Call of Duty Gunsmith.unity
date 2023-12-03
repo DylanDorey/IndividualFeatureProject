@@ -3205,7 +3205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 400, y: 60}
+  m_AnchoredPosition: {x: 350, y: 65}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &482150445
@@ -13327,11 +13327,11 @@ MonoBehaviour:
     type: 3}
   attachmentButtonSpawnLoc: {fileID: 480669842}
   _attachmentButtonSpawnLoc: {x: 0, y: 0, z: 0}
-  attachmentTypeText: {fileID: 0}
-  attachmentNameText: {fileID: 0}
-  attachmentDescriptionText: {fileID: 0}
-  prosText: {fileID: 0}
-  consText: {fileID: 0}
+  attachmentTypeText: {fileID: 957048496}
+  attachmentNameText: {fileID: 1008360618}
+  attachmentDescriptionText: {fileID: 822671380}
+  prosText: {fileID: 140628676}
+  consText: {fileID: 764008583}
   attachmentInfoPanel: {fileID: 1429918200}
   attachmentButtonPrefab: {fileID: 0}
 --- !u!1 &1580276671
@@ -15583,6 +15583,7 @@ MonoBehaviour:
   magazineSlot: {fileID: 1307623262}
   rearGripSlot: {fileID: 2021848386}
   stockSlot: {fileID: 490694496}
+  attachmentListButtons: []
 --- !u!1 &1844301376
 GameObject:
   m_ObjectHideFlags: 0
@@ -19294,8 +19295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   attachmentType: optic
-  attachmentName: std_ironsight
-  description: 
+  attachmentName: Iron Sights
+  description: Base metal sights equipped on weapon from the factory.
   pros: 
   cons: 
   damageChange: 0
@@ -19460,8 +19461,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   attachmentType: optic
-  attachmentName: reddot
-  description: 
+  attachmentName: Red Dot
+  description: Small sight with mini red dot in the middle for aiming precision.
   pros: 
   cons: 
   damageChange: 0
@@ -19619,8 +19620,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   attachmentType: optic
-  attachmentName: scope
-  description: 
+  attachmentName: Scope
+  description: A magnified scope with a red dot in the middle for further range shots.
   pros: 
   cons: 
   damageChange: 0

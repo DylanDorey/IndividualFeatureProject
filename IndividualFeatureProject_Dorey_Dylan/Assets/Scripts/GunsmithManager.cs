@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
  * Author: [Dorey, Dylan]
@@ -44,6 +45,9 @@ public class GunsmithManager : MonoBehaviour
     public GameObject rearGripSlot;
     public GameObject stockSlot;
 
+    //list of attachment buttons
+    public List<GameObject> attachmentListButtons = new List<GameObject>();
+
 
     private void Awake()
     {
@@ -85,9 +89,6 @@ public class GunsmithManager : MonoBehaviour
     /// <param name="weapon"> the weapon that the player is equiping attachments to </param>
     public void PopulateAttachmentList()
     {
-        //int amountOfAttachments;
-        //GameObject[] attachmentArray;
-
         OpenAttachmentList();
 
         //set the amount of attachments to populate depending on which slot the player selected
@@ -145,16 +146,19 @@ public class GunsmithManager : MonoBehaviour
             GameObject newButton = Instantiate(UIManager.Instance.newAttachmentButtonPrefab, UIManager.Instance.attachmentButtonSpawnLoc.transform.position, UIManager.Instance.attachmentButtonSpawnLoc.transform.rotation);
             NewAttachmentButton newButtonScript = newButton.GetComponent<NewAttachmentButton>();
 
+            //add button to list
+            attachmentListButtons.Add(newButton);
+
             //Set new buttons parent as the weapon select screen
             newButton.transform.SetParent(UIManager.Instance.attachmentSelectionScreen.transform);
 
             //WORK HERE, try to get all three things to show up on the buttons once they populate
             newButtonScript.attachment = attachmentArray[x].gameObject;
-            newButtonScript.attachmentImage = attachmentArray[x].GetComponent<AttachmentData>().icon;
-            newButtonScript.attachmentName.text = attachmentArray[x].GetComponent<AttachmentData>().name;
+            newButtonScript.attachmentImage.GetComponent<Image>().sprite = attachmentArray[x].GetComponent<AttachmentData>().icon;
+            newButtonScript.attachmentName.text = attachmentArray[x].GetComponent<AttachmentData>().attachmentName;
 
             //increase and move x spawn location for next button spawn
-            UIManager.Instance.attachmentButtonSpawnLoc.transform.position = new Vector3(UIManager.Instance.attachmentButtonSpawnLoc.transform.position.x + 200f, UIManager.Instance.attachmentButtonSpawnLoc.transform.position.y, UIManager.Instance.attachmentButtonSpawnLoc.transform.position.z);
+            UIManager.Instance.attachmentButtonSpawnLoc.transform.position = new Vector3(UIManager.Instance.attachmentButtonSpawnLoc.transform.position.x + 225f, UIManager.Instance.attachmentButtonSpawnLoc.transform.position.y, UIManager.Instance.attachmentButtonSpawnLoc.transform.position.z);
         }
 
         //reset the button spawn location to its original spot
@@ -174,14 +178,14 @@ public class GunsmithManager : MonoBehaviour
 
         //change attachment slot item name
 
-        //
+        //clear the attachment button list
+        ResetAttachmentButtons();
     }
 
     /// <summary>
     /// removes an attachment from the attachment list onto the players weapon
     /// </summary>
-    /// <param name="attachment"> the attachment the player selects to remove from their weapon </param>
-    public void RemoveAttachment(GameObject attachment)
+    public void RemoveAttachment()
     {
 
         if (currentEditingAttachment == "optic")
@@ -217,6 +221,9 @@ public class GunsmithManager : MonoBehaviour
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[7] = null;
         }
 
+        //Get rid of all the attachment button
+        //ResetAttachmentButtons();
+
         //return to gunsmith screen
         UIManager.Instance.screenState = ScreenState.gunsmith;
 
@@ -235,5 +242,15 @@ public class GunsmithManager : MonoBehaviour
     public void EquipCompletedWeapon(GameObject weapon)
     {
         //SAVE THE ATTACHMENTS IN THE WEAPON ATTACHMENTS ARRAY
+    }
+
+    public void ResetAttachmentButtons()
+    {
+        //loop through attachmentListButtons list
+        foreach (GameObject button in attachmentListButtons)
+        {
+            //destroy the buttons that are present
+            Destroy(button);
+        }
     }
 }

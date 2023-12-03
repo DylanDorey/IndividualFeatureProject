@@ -408,6 +408,9 @@ public class UIManager : MonoBehaviour
         //set the screen state back to gunsmith
         screenState = ScreenState.gunsmith;
 
+        //reset the attachment buttons
+        GunsmithManager.Instance.ResetAttachmentButtons();
+
         //Move camera back to default gunsmith camera position
         CameraManager.Instance.MoveCamBack();
     }

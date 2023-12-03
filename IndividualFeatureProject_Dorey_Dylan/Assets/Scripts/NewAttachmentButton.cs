@@ -18,15 +18,14 @@ public class NewAttachmentButton : MonoBehaviour, IPointerDownHandler, IPointerE
 
     //attachment button properties
     public GameObject attachmentCheckMark;
-    public Sprite attachmentImage;
+    public GameObject attachmentImage;
     public TextMeshProUGUI attachmentName;
     public GameObject equippedText;
 
     private void Start()
     {
         //initialize button image and name
-        attachmentImage = attachment.GetComponent<AttachmentData>().icon;
-        attachmentName.text = attachment.GetComponent<AttachmentData>().attachmentName;
+        //attachmentName.text = attachment.GetComponent<AttachmentData>().attachmentName;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -35,8 +34,8 @@ public class NewAttachmentButton : MonoBehaviour, IPointerDownHandler, IPointerE
         GunsmithManager.Instance.EquipAttachment(attachment);
 
         //set the check mark and equipped text to active
-        attachmentCheckMark.SetActive(true);
-        equippedText.SetActive(true);
+        //attachmentCheckMark.SetActive(true);
+        //equippedText.SetActive(true);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
