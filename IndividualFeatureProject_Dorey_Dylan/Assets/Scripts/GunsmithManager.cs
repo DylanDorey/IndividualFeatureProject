@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 /*
  * Author: [Dorey, Dylan]
@@ -182,41 +183,50 @@ public class GunsmithManager : MonoBehaviour
         //spawn in the appropriate attachment for each given attachment type
         if (attachment.GetComponent<AttachmentData>().attachmentType == "optic")
         {
+            //spawn in the correct attachment at its corresponding attachment location, and set its active to true;
+            //GameObject.Find(currentGSWeapon.GetComponent<Weapon>().weaponAttachments[0].name).SetActive(true);
             Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().opticLocation.transform.position, Quaternion.identity);
             attachment.SetActive(true);
         }
         else if (attachment.GetComponent<AttachmentData>().attachmentType == "laser")
         {
+            //spawn in the correct attachment at its corresponding attachment location, and set its active to true;
             Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().laserLocation.transform.position, Quaternion.identity);
             attachment.SetActive(true);
         }
         else if (attachment.GetComponent<AttachmentData>().attachmentType == "barrel")
         {
+            //spawn in the correct attachment at its corresponding attachment location, and set its active to true;
             Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().barrelLocation.transform.position, Quaternion.identity);
             attachment.SetActive(true);
         }
         else if (attachment.GetComponent<AttachmentData>().attachmentType == "muzzle")
         {
+            //spawn in the correct attachment at its corresponding attachment location, and set its active to true;
             Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().muzzleLocation.transform.position, Quaternion.identity);
             attachment.SetActive(true);
         }
         else if (attachment.GetComponent<AttachmentData>().attachmentType == "grip")
         {
+            //spawn in the correct attachment at its corresponding attachment location, and set its active to true;
             Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().gripLocation.transform.position, Quaternion.identity);
             attachment.SetActive(true);
         }
         else if (attachment.GetComponent<AttachmentData>().attachmentType == "magazine")
         {
+            //spawn in the correct attachment at its corresponding attachment location, and set its active to true;
             Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().magazineLocation.transform.position, Quaternion.identity);
             attachment.SetActive(true);
         }
         else if (attachment.GetComponent<AttachmentData>().attachmentType == "rearGrip")
         {
+            //spawn in the correct attachment at its corresponding attachment location, and set its active to true;
             Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().rearGripLocation.transform.position, Quaternion.identity);
             attachment.SetActive(true);
         }
         else if (attachment.GetComponent<AttachmentData>().attachmentType == "stock")
         {
+            //spawn in the correct attachment at its corresponding attachment location, and set its active to true;
             Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().stockLocation.transform.position, Quaternion.identity);
             attachment.SetActive(true);
         }
@@ -236,41 +246,63 @@ public class GunsmithManager : MonoBehaviour
     /// </summary>
     public void RemoveAttachment()
     {
+        //check what attachment is currently being edited
         if (currentEditingAttachment == "optic")
         {
+            //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[0] = null;
+            opticSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
+            opticSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
         }
         else if (currentEditingAttachment == "laser")
         {
+            //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[1] = null;
+            laserSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
+            laserSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
         }
         else if (currentEditingAttachment == "barrel")
         {
+            //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[2] = null;
+            barrelSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
+            barrelSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
         }
         else if(currentEditingAttachment == "muzzle")
         {
+            //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[3] = null;
+            muzzleSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
+            muzzleSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
         }
         else if (currentEditingAttachment == "grip")
         {
+            //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[4] = null;
+            gripSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
+            gripSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
         }
         else if (currentEditingAttachment == "magazine")
         {
+            //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[5] = null;
+            magazineSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
+            magazineSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
         }
         else if (currentEditingAttachment == "rearGrip")
         {
+            //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[6] = null;
+            rearGripSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
+            rearGripSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
         }
         else if (currentEditingAttachment == "stock")
         {
+            //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[7] = null;
+            stockSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
+            stockSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
         }
-
-        //Get rid of all the attachment button
-        //ResetAttachmentButtons();
 
         //return to gunsmith screen
         UIManager.Instance.screenState = ScreenState.gunsmith;

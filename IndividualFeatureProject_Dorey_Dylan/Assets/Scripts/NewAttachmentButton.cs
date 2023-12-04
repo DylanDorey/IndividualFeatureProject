@@ -112,6 +112,9 @@ public class NewAttachmentButton : MonoBehaviour, IPointerDownHandler, IPointerE
             GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().weaponAttachments[7] = attachment;
         }
 
+        //apply the stat changes to the gunsmith stat bars
+        ChangeWeaponStats();
+
         //equip the attachment to the attachment slot once the player clicks on the button
         GunsmithManager.Instance.EquipAttachment(attachment);
 
@@ -130,5 +133,19 @@ public class NewAttachmentButton : MonoBehaviour, IPointerDownHandler, IPointerE
     {
         //setactive on the attachment type, name, description, pros, and cons
         UIManager.Instance.OnAttachmentButtonExit(attachment);
+    }
+
+    /// <summary>
+    /// changes the stats of the weapon given the attachment the player equips
+    /// </summary>
+    private void ChangeWeaponStats()
+    {
+        GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().damage += attachment.GetComponent<AttachmentData>().damageChange;
+        GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().fireRate += attachment.GetComponent<AttachmentData>().fireRateChange;
+        GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().range += attachment.GetComponent<AttachmentData>().rangeChange;
+        GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().accuracy += attachment.GetComponent<AttachmentData>().accuracyChange;
+        GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().recoilControl += attachment.GetComponent<AttachmentData>().recoilControlChange;
+        GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().mobility += attachment.GetComponent<AttachmentData>().mobilityChange;
+        GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().handling += attachment.GetComponent<AttachmentData>().handlingChange;
     }
 }

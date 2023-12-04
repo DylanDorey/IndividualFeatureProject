@@ -68,14 +68,14 @@ public class UIManager : MonoBehaviour
     public GameObject gsHandlingBar;
 
     //gunsmith screen UI button elements
-    public GameObject opticButton;
-    public GameObject laserButton;
-    public GameObject barrelButton;
-    public GameObject muzzleButton;
-    public GameObject gripButton;
-    public GameObject magazineButton;
-    public GameObject rearGripButton;
-    public GameObject stockButton;
+    //public GameObject opticButton;
+    //public GameObject laserButton;
+    //public GameObject barrelButton;
+    //public GameObject muzzleButton;
+    //public GameObject gripButton;
+    //public GameObject magazineButton;
+    //public GameObject rearGripButton;
+    //public GameObject stockButton;
 
     //attachment selection screen UI text elements
     public GameObject newAttachmentButtonPrefab;
@@ -89,7 +89,7 @@ public class UIManager : MonoBehaviour
     public GameObject attachmentInfoPanel;
 
     //attachment selection screen UI button elements
-    public GameObject attachmentButtonPrefab;
+    //public GameObject attachmentButtonPrefab;
 
     //bool to determine if the attachment slot already has an attachment in it
     private bool alreadyHasAttachment = false;
@@ -116,6 +116,10 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         screenState = ScreenState.playing;
+
+        //set the base weapon stats on the weapon select screen
+        SetBaseWeaponStats();
+        
     }
 
     private void Update()
@@ -125,8 +129,9 @@ public class UIManager : MonoBehaviour
         //if the gunsmith screen is open
         if(screenState == ScreenState.gunsmith)
         {
-            //set the ammo amounts
+            //set the ammo amounts and all stat bars according to weapon's current stat values
             UpdateWeaponAmmo();
+            UpdateGSStatBars();
         }
     }
 
@@ -206,14 +211,6 @@ public class UIManager : MonoBehaviour
         gsWeaponNameText.text = weaponSelected.GetComponent<Weapon>().weaponName;
         //gsAmmoText.text = weaponSelected.GetComponent<Weapon>().magSize.ToString();
         //gsAmmoReserveText.text = weaponSelected.GetComponent<Weapon>().reserveAmmoSize.ToString();
-    }
-
-    /// <summary>
-    /// Closes the gunsmith UI menu for the player
-    /// </summary>
-    public void CloseGunsmith()
-    {
-
     }
 
     /// <summary>
@@ -344,12 +341,32 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Applies the correct icon and name for the attachment in the attachment slot
+    /// sets the weapons stat values to default with no attachments
     /// </summary>
-    /// <param name="attachment"> the attachment the player equips </param>
-    public void UpdateAttachmentUI(GameObject attachment)
+    public void SetBaseWeaponStats()
     {
+        wsDamageBar.transform.localScale = new Vector3(0.5f, 1f, 1f);
+        wsFireRateBar.transform.localScale = new Vector3(0.7f, 1f, 1f);
+        wsRangeBar.transform.localScale = new Vector3(0.4f, 1f, 1f);
+        wsAccuracyBar.transform.localScale = new Vector3(0.65f, 1f, 1f);
+        wsRecoilControlBar.transform.localScale = new Vector3(0.4f, 1f, 1f);
+        wsMobilityBar.transform.localScale = new Vector3(0.5f, 1f, 1f);
+        wsHandlingBar.transform.localScale = new Vector3(0.55f, 1f, 1f);
+    }
 
+    /// <summary>
+    /// Updates the gunsmith stat bars depending on the attachments equipped
+    /// </summary>
+    public void UpdateGSStatBars()
+    {
+        //set the current weapons stat values based upon the attachments they have equipped
+        gsDamageBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().damage, 1f, 1f);
+        gsFireRateBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().fireRate, 1f, 1f);
+        gsRangeBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().range, 1f, 1f);
+        gsAccuracyBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().accuracy, 1f, 1f);
+        gsRecoilControlBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().recoilControl, 1f, 1f);
+        gsMobilityBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().mobility, 1f, 1f);
+        gsHandlingBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().handling, 1f, 1f);
     }
 
     /// <summary>

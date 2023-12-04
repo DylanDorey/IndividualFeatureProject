@@ -6372,140 +6372,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713748307}
   m_CullTransparentMesh: 1
---- !u!1 &720845249
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 720845250}
-  - component: {fileID: 720845252}
-  - component: {fileID: 720845251}
-  m_Layer: 5
-  m_Name: PreviewWeaponText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &720845250
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720845249}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1272469300}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 25}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &720845251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720845249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: PREVIEW WEAPON
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 3370180832
-  m_fontColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 0.78431374}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &720845252
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720845249}
-  m_CullTransparentMesh: 1
 --- !u!1 &725894373
 GameObject:
   m_ObjectHideFlags: 0
@@ -11115,139 +10981,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1272469299
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1272469300}
-  - component: {fileID: 1272469303}
-  - component: {fileID: 1272469302}
-  - component: {fileID: 1272469301}
-  m_Layer: 5
-  m_Name: PreviewWeaponButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1272469300
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272469299}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 720845250}
-  m_Father: {fileID: 1944729759}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 110, y: 10}
-  m_SizeDelta: {x: 150, y: 40}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &1272469301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272469299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1272469302}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1832718354}
-        m_TargetAssemblyTypeName: GunsmithManager, Assembly-CSharp
-        m_MethodName: EnterPreviewWeapon
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1272469302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272469299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0.78431374}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1272469303
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272469299}
-  m_CullTransparentMesh: 1
 --- !u!1 &1288311853
 GameObject:
   m_ObjectHideFlags: 0
@@ -13369,22 +13102,14 @@ MonoBehaviour:
   gsWeaponNameText: {fileID: 713748309}
   gsAmmoText: {fileID: 584367969}
   gsAmmoReserveText: {fileID: 1709993364}
-  gsModificationsText: {fileID: 0}
-  gsDamageBar: {fileID: 0}
-  gsFireRateBar: {fileID: 0}
-  gsRangeBar: {fileID: 0}
-  gsAccuracyBar: {fileID: 0}
-  gsRecoilControlBar: {fileID: 0}
-  gsMobilityBar: {fileID: 0}
-  gsHandlingBar: {fileID: 0}
-  opticButton: {fileID: 0}
-  laserButton: {fileID: 0}
-  barrelButton: {fileID: 0}
-  muzzleButton: {fileID: 0}
-  gripButton: {fileID: 0}
-  magazineButton: {fileID: 0}
-  rearGripButton: {fileID: 0}
-  stockButton: {fileID: 0}
+  gsModificationsText: {fileID: 550193588}
+  gsDamageBar: {fileID: 961846714}
+  gsFireRateBar: {fileID: 815567925}
+  gsRangeBar: {fileID: 1614589350}
+  gsAccuracyBar: {fileID: 2071958667}
+  gsRecoilControlBar: {fileID: 69912181}
+  gsMobilityBar: {fileID: 1219372882}
+  gsHandlingBar: {fileID: 782887656}
   newAttachmentButtonPrefab: {fileID: 902586739961723913, guid: 3aabc7b15f881424db7c14e64f1b0063,
     type: 3}
   attachmentButtonSpawnLoc: {fileID: 480669842}
@@ -13395,7 +13120,6 @@ MonoBehaviour:
   prosText: {fileID: 140628676}
   consText: {fileID: 764008583}
   attachmentInfoPanel: {fileID: 1429918200}
-  attachmentButtonPrefab: {fileID: 0}
 --- !u!1 &1580276671
 GameObject:
   m_ObjectHideFlags: 0
@@ -16398,10 +16122,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1832718354}
         m_TargetAssemblyTypeName: GunsmithManager, Assembly-CSharp
         m_MethodName: RemoveAttachment
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -16479,7 +16203,6 @@ RectTransform:
   - {fileID: 1617708565}
   - {fileID: 679996622}
   - {fileID: 88520297}
-  - {fileID: 1272469300}
   m_Father: {fileID: 1256735102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -18457,7 +18180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: da9b81e5cba07724d8d2966642cc5089, type: 3}
   attachmentType: magazine
   attachmentName: Lightweight Mag
   description: A lighter weight magazine that allows the player to move quicker,
@@ -18469,8 +18192,8 @@ MonoBehaviour:
   rangeChange: 0
   accuracyChange: 0
   recoilControlChange: 0
-  mobilityChange: 0
-  handlingChange: 0
+  mobilityChange: 0.09
+  handlingChange: 0.05
   ammoChange: 20
   ammoReserveChange: 60
 --- !u!1 &3215432197587676086
@@ -18626,7 +18349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: edeec79a92dabfc42ab81dbb1771c5a7, type: 3}
   attachmentType: laser
   attachmentName: Flashlight
   description: Emits light that can illuminate darker areas and blind enemies.
@@ -18635,10 +18358,10 @@ MonoBehaviour:
   damageChange: 0
   fireRateChange: 0
   rangeChange: 0
-  accuracyChange: 0
+  accuracyChange: 0.05
   recoilControlChange: 0
   mobilityChange: 0
-  handlingChange: 0
+  handlingChange: 0.03
   ammoChange: 0
   ammoReserveChange: 0
 --- !u!33 &4156180645677265192
@@ -18761,20 +18484,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1bda5b6378476a243b2c61d0b6184100, type: 3}
   attachmentType: magazine
   attachmentName: High Caliber
   description: A smaller sized magazine equipped with high caliber rounds that do
     more damage.
   pros: 
   cons: 
-  damageChange: 0
-  fireRateChange: 0
-  rangeChange: 0
+  damageChange: 0.08
+  fireRateChange: -0.08
+  rangeChange: 0.05
   accuracyChange: 0
-  recoilControlChange: 0
-  mobilityChange: 0
-  handlingChange: 0
+  recoilControlChange: -0.03
+  mobilityChange: 0.05
+  handlingChange: 0.03
   ammoChange: 10
   ammoReserveChange: 30
 --- !u!4 &4798073459302690372
@@ -18909,7 +18632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 10c2ba736eeedb24ab41626537c0502b, type: 3}
   attachmentType: barrel
   attachmentName: Short Barrel
   description: A shorter barrel that allows for better movement speed and hipfire
@@ -18918,11 +18641,11 @@ MonoBehaviour:
   cons: 
   damageChange: 0
   fireRateChange: 0
-  rangeChange: 0
-  accuracyChange: 0
-  recoilControlChange: 0
-  mobilityChange: 0
-  handlingChange: 0
+  rangeChange: -0.05
+  accuracyChange: -0.1
+  recoilControlChange: -0.08
+  mobilityChange: 0.08
+  handlingChange: 0.1
   ammoChange: 0
   ammoReserveChange: 0
 --- !u!23 &5457612054515121506
@@ -19009,7 +18732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: eb204fd58eed9ef4983e12097339e785, type: 3}
   attachmentType: rearGrip
   attachmentName: Sticky Rear Grip
   description: A stickier rear grip that gives the player more stability and control
@@ -19019,10 +18742,10 @@ MonoBehaviour:
   damageChange: 0
   fireRateChange: 0
   rangeChange: 0
-  accuracyChange: 0
-  recoilControlChange: 0
+  accuracyChange: 0.03
+  recoilControlChange: -0.05
   mobilityChange: 0
-  handlingChange: 0
+  handlingChange: 0.05
   ammoChange: 0
   ammoReserveChange: 0
 --- !u!23 &5699725848551512683
@@ -19079,7 +18802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 07647970294d42c4aafb9e5c27790b2b, type: 3}
   attachmentType: stock
   attachmentName: Precision Stock
   description: A stock that gives the player more weapon stability and accuracy while
@@ -19090,9 +18813,9 @@ MonoBehaviour:
   fireRateChange: 0
   rangeChange: 0
   accuracyChange: 0
-  recoilControlChange: 0
-  mobilityChange: 0
-  handlingChange: 0
+  recoilControlChange: -0.05
+  mobilityChange: 0.08
+  handlingChange: 0.05
   ammoChange: 0
   ammoReserveChange: 0
 --- !u!23 &5854663335081510791
@@ -19176,7 +18899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 27d84682502990c4b9a15ec97528fdb4, type: 3}
   attachmentType: muzzle
   attachmentName: Suppressor
   description: Makes firing the weapon quieter and keeps them hidden on the minimap.
@@ -19184,11 +18907,11 @@ MonoBehaviour:
   cons: 
   damageChange: 0
   fireRateChange: 0
-  rangeChange: 0
-  accuracyChange: 0
-  recoilControlChange: 0
+  rangeChange: -0.02
+  accuracyChange: 0.02
+  recoilControlChange: 0.03
   mobilityChange: 0
-  handlingChange: 0
+  handlingChange: -0.05
   ammoChange: 0
   ammoReserveChange: 0
 --- !u!33 &5981549690301290940
@@ -19230,7 +18953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e0c81e66b1550b2498bc0e961fc308bc, type: 3}
   attachmentType: rearGrip
   attachmentName: Standard Rear Grip
   description: The standard rear grip that comes with the weapon from tthe factory.
@@ -19351,18 +19074,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 408e2aaba73c2b54bb2549b46e47d6f0, type: 3}
   attachmentType: muzzle
   attachmentName: Compensator
   description: Allows for less recoil during sustained fire and gives the player
     less muzzle flash.
   pros: 
   cons: 
-  damageChange: 0
+  damageChange: -0.03
   fireRateChange: 0
-  rangeChange: 0
+  rangeChange: -0.08
   accuracyChange: 0
-  recoilControlChange: 0
+  recoilControlChange: 0.1
   mobilityChange: 0
   handlingChange: 0
   ammoChange: 0
@@ -19417,7 +19140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ef9fa5b92bc0c3c41a6ca994bf7cd2fa, type: 3}
   attachmentType: laser
   attachmentName: Pec Box
   description: A powerful laser that allows for better accuracy at close range.
@@ -19426,10 +19149,10 @@ MonoBehaviour:
   damageChange: 0
   fireRateChange: 0
   rangeChange: 0
-  accuracyChange: 0
+  accuracyChange: 0.05
   recoilControlChange: 0
   mobilityChange: 0
-  handlingChange: 0
+  handlingChange: 0.06
   ammoChange: 0
   ammoReserveChange: 0
 --- !u!1 &6839544406328507634
@@ -19541,13 +19264,13 @@ MonoBehaviour:
   weaponDescription: This remarkably adaptable assault rifle features phenomenal
     recoil control and versatility from a lightweight frame chambered in 5.56.
   icon: {fileID: 21300000, guid: 78071069bc0554643b966fe779a44ab6, type: 3}
-  damage: 0
-  fireRate: 0
-  range: 0
-  accuracy: 0
-  recoilControl: 0
-  mobility: 0
-  handling: 0
+  damage: 0.5
+  fireRate: 0.7
+  range: 0.4
+  accuracy: 0.65
+  recoilControl: 0.5
+  mobility: 0.55
+  handling: 0.6
   modifications: 0
   magSize: 30
   reserveAmmoSize: 90
@@ -19614,7 +19337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: eef6a61b62188da41a97823cfda661c9, type: 3}
   attachmentType: grip
   attachmentName: Stubby Foregrip
   description: A smalled foregrip that makes the weapon sway minimal and hipfire
@@ -19624,10 +19347,10 @@ MonoBehaviour:
   damageChange: 0
   fireRateChange: 0
   rangeChange: 0
-  accuracyChange: 0
-  recoilControlChange: 0
-  mobilityChange: 0
-  handlingChange: 0
+  accuracyChange: 0.06
+  recoilControlChange: 0.1
+  mobilityChange: 0.03
+  handlingChange: 0.05
   ammoChange: 0
   ammoReserveChange: 0
 --- !u!23 &7556051575093696504
@@ -19684,7 +19407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 3b533ce569707344ea344eeb09f58024, type: 3}
   attachmentType: optic
   attachmentName: Iron Sights
   description: Base metal sights equipped on weapon from the factory.
@@ -19852,7 +19575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 145aaa73af467d24d963c6391bd307a1, type: 3}
   attachmentType: optic
   attachmentName: Red Dot
   description: Small sight with mini red dot in the middle for aiming precision.
@@ -19860,8 +19583,8 @@ MonoBehaviour:
   cons: 
   damageChange: 0
   fireRateChange: 0
-  rangeChange: 0
-  accuracyChange: 0
+  rangeChange: 0.05
+  accuracyChange: 0.08
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
@@ -19887,7 +19610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7dcb8ca6294c9d54695456fec8c31b6f, type: 3}
   attachmentType: grip
   attachmentName: Angled Foregrip
   description: An angled foregrip that allows for better recoil control and weapon
@@ -19897,10 +19620,10 @@ MonoBehaviour:
   damageChange: 0
   fireRateChange: 0
   rangeChange: 0
-  accuracyChange: 0
-  recoilControlChange: 0
+  accuracyChange: 0.07
+  recoilControlChange: 0.05
   mobilityChange: 0
-  handlingChange: 0
+  handlingChange: -0.05
   ammoChange: 0
   ammoReserveChange: 0
 --- !u!1 &7867466525464102956
@@ -19934,19 +19657,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f9e8e18999aa87245829b0de48205d23, type: 3}
   attachmentType: barrel
   attachmentName: Long Barrel
   description: A longer barrel which allows for better range and accuracy.
-  pros: 
-  cons: 
-  damageChange: 0
+  pros: 'Range
+
+    Damage Range
+
+    Accuracy'
+  cons: 'Sprint to Fire Speed
+
+    Hipfire Spread'
+  damageChange: 0.1
   fireRateChange: 0
-  rangeChange: 0
-  accuracyChange: 0
+  rangeChange: 0.15
+  accuracyChange: 0.03
   recoilControlChange: 0
-  mobilityChange: 0
-  handlingChange: 0
+  mobilityChange: 0.04
+  handlingChange: -0.06
   ammoChange: 0
   ammoReserveChange: 0
 --- !u!23 &7959259078200796300
@@ -20003,7 +19732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 373eabcd74948334b9c88d30a19884bb, type: 3}
   attachmentType: stock
   attachmentName: No Stock
   description: Removes the stock from the weapon allowing for better manueverability,
@@ -20013,10 +19742,10 @@ MonoBehaviour:
   damageChange: 0
   fireRateChange: 0
   rangeChange: 0
-  accuracyChange: 0
-  recoilControlChange: 0
-  mobilityChange: 0
-  handlingChange: 0
+  accuracyChange: -0.13
+  recoilControlChange: -0.2
+  mobilityChange: 0.1
+  handlingChange: 0.13
   ammoChange: 0
   ammoReserveChange: 0
 --- !u!33 &8200087652280430976
@@ -20039,7 +19768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f6e9ad398ce3ee545905b22d8b972c62, type: 3}
   attachmentType: rearGrip
   attachmentName: Tactile Rear Grip
   description: A rear grip that allows the player to move quicker and aim down sights
@@ -20049,9 +19778,9 @@ MonoBehaviour:
   damageChange: 0
   fireRateChange: 0
   rangeChange: 0
-  accuracyChange: 0
-  recoilControlChange: 0
-  mobilityChange: 0
+  accuracyChange: 0.03
+  recoilControlChange: 0.05
+  mobilityChange: -0.03
   handlingChange: 0
   ammoChange: 0
   ammoReserveChange: 0
@@ -20091,7 +19820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1eecd95579b70ee41aaa3d2e5ee9926a, type: 3}
   attachmentType: magazine
   attachmentName: Standard Magazine
   description: The standard issue magazine that comes with the weapon from the factory.
@@ -20126,7 +19855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: a24d8e24ce23cd54f8a4e0c65e69e3fc, type: 3}
   attachmentType: optic
   attachmentName: Scope
   description: A magnified scope with a red dot in the middle for further range shots.
@@ -20134,8 +19863,8 @@ MonoBehaviour:
   cons: 
   damageChange: 0
   fireRateChange: 0
-  rangeChange: 0
-  accuracyChange: 0
+  rangeChange: 0.15
+  accuracyChange: 0.1
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
@@ -20226,7 +19955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1545df2616e128843bfc6d57bfb606f4, type: 3}
   attachmentType: stock
   attachmentName: Standard Stock
   description: The stock that comes with the weapon from the factory.
@@ -20261,7 +19990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b80c6fe96727f2f4e81ac2fd8d7aab40, type: 3}
   attachmentType: magazine
   attachmentName: Extended Magazine
   description: A magazine that holds significantly more ammo allowing for longer
@@ -20273,8 +20002,8 @@ MonoBehaviour:
   rangeChange: 0
   accuracyChange: 0
   recoilControlChange: 0
-  mobilityChange: 0
-  handlingChange: 0
+  mobilityChange: -0.1
+  handlingChange: -0.05
   ammoChange: 45
   ammoReserveChange: 90
 --- !u!1 &8933396351317626287
@@ -20324,7 +20053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3b8fe6fc6618040a87dd1a5866d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5690815009e59344aa9b72b2bdc6e4c1, type: 3}
   attachmentType: barrel
   attachmentName: Standard Barrel
   description: Factory issued barrel that is produced with the weapon.
