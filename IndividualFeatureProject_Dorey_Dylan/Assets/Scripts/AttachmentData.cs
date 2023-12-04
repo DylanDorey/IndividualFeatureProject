@@ -28,4 +28,7 @@ public class AttachmentData : MonoBehaviour
     public float recoilControlChange;
     public float mobilityChange;
     public float handlingChange;
+
+    public int ammoChange;
+    public int ammoReserveChange;
 }

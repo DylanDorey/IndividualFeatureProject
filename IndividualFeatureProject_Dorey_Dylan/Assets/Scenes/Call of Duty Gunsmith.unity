@@ -18471,6 +18471,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 20
+  ammoReserveChange: 60
 --- !u!1 &3215432197587676086
 GameObject:
   m_ObjectHideFlags: 0
@@ -18637,6 +18639,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!33 &4156180645677265192
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18771,6 +18775,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 10
+  ammoReserveChange: 30
 --- !u!4 &4798073459302690372
 Transform:
   m_ObjectHideFlags: 0
@@ -18917,6 +18923,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!23 &5457612054515121506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19015,6 +19023,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!23 &5699725848551512683
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19083,6 +19093,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!23 &5854663335081510791
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19177,6 +19189,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!33 &5981549690301290940
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19229,6 +19243,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!4 &6120968253133208859
 Transform:
   m_ObjectHideFlags: 0
@@ -19349,6 +19365,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!33 &6585873308032542601
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19412,6 +19430,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!1 &6839544406328507634
 GameObject:
   m_ObjectHideFlags: 0
@@ -19608,6 +19628,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!23 &7556051575093696504
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19675,6 +19697,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!23 &7561280883040792734
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19841,6 +19865,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!33 &7747995449021375746
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19875,6 +19901,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!1 &7867466525464102956
 GameObject:
   m_ObjectHideFlags: 0
@@ -19919,6 +19947,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!23 &7959259078200796300
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19987,6 +20017,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!33 &8200087652280430976
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20021,6 +20053,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!1 &8256913804821034354
 GameObject:
   m_ObjectHideFlags: 0
@@ -20070,6 +20104,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 30
+  ammoReserveChange: 90
 --- !u!33 &8725238947727424454
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20103,6 +20139,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!4 &8727003861189335993
 Transform:
   m_ObjectHideFlags: 0
@@ -20201,6 +20239,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!33 &8801285521973550200
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20235,6 +20275,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 45
+  ammoReserveChange: 90
 --- !u!1 &8933396351317626287
 GameObject:
   m_ObjectHideFlags: 0
@@ -20295,6 +20337,8 @@ MonoBehaviour:
   recoilControlChange: 0
   mobilityChange: 0
   handlingChange: 0
+  ammoChange: 0
+  ammoReserveChange: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

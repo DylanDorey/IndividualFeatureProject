@@ -92,6 +92,10 @@ public class NewAttachmentButton : MonoBehaviour, IPointerDownHandler, IPointerE
             GameObject.Find(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().weaponAttachments[5].name).SetActive(false);
             GunsmithManager.Instance.magazineSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = attachment;
             GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().weaponAttachments[5] = attachment;
+
+            //change ammo amounts
+            GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().magSize = attachment.GetComponent<AttachmentData>().ammoChange;
+            GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().reserveAmmoSize = attachment.GetComponent<AttachmentData>().ammoReserveChange;
         }
         else if (attachment.GetComponent<AttachmentData>().attachmentType == "rearGrip")
         {

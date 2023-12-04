@@ -121,6 +121,13 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         CheckScreenState();
+
+        //if the gunsmith screen is open
+        if(screenState == ScreenState.gunsmith)
+        {
+            //set the ammo amounts
+            UpdateWeaponAmmo();
+        }
     }
 
     /// <summary>
@@ -197,8 +204,8 @@ public class UIManager : MonoBehaviour
         //change all text and values of gunsmith UI elements
         gsWeaponTypeNameText.text = weaponSelected.GetComponent<Weapon>().weaponType;
         gsWeaponNameText.text = weaponSelected.GetComponent<Weapon>().weaponName;
-        gsAmmoText.text = weaponSelected.GetComponent<Weapon>().magSize.ToString();
-        gsAmmoReserveText.text = weaponSelected.GetComponent<Weapon>().reserveAmmoSize.ToString();
+        //gsAmmoText.text = weaponSelected.GetComponent<Weapon>().magSize.ToString();
+        //gsAmmoReserveText.text = weaponSelected.GetComponent<Weapon>().reserveAmmoSize.ToString();
     }
 
     /// <summary>
@@ -325,6 +332,15 @@ public class UIManager : MonoBehaviour
     {
         //disable the attachment info panel when not hovering over an attachment selection
         attachmentInfoPanel.SetActive(false);
+    }
+
+    /// <summary>
+    /// changes the weapons mag size and ammo reserve size depending on what mag is equipped
+    /// </summary>
+    private void UpdateWeaponAmmo()
+    {
+        gsAmmoText.text = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().magSize.ToString();
+        gsAmmoReserveText.text = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().reserveAmmoSize.ToString();
     }
 
     /// <summary>
