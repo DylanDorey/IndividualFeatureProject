@@ -34,7 +34,18 @@ public class NewAttachmentSlot : MonoBehaviour, IPointerDownHandler, IPointerEnt
             slotImageRef.GetComponent<Image>().sprite = emptySlotImage;
         }
 
-        AttachmentSlotUpdate();
+        //if the attachment slot is full
+        if (attachmentInSlot != null)
+        {
+            //set the correct attachment slot properties
+            AttachmentSlotUpdate();
+        }
+        else
+        {
+            //otherwise set to default values
+            transform.GetChild(1).GetComponent<Image>().sprite = emptySlotImage;
+            transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "EMPTY";
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -47,6 +58,7 @@ public class NewAttachmentSlot : MonoBehaviour, IPointerDownHandler, IPointerEnt
         //Open the attachment list
         GunsmithManager.Instance.PopulateAttachmentList();
     }
+
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -71,52 +83,66 @@ public class NewAttachmentSlot : MonoBehaviour, IPointerDownHandler, IPointerEnt
         //loop through the attachments array and update all the images and names of the attachment slots
         for (int index = 0; index < attachmentList.Length; index++)
         {
-            //if there is an attachment in the slot
-            if (attachmentList[index] != null)
+            switch (index)
             {
-                switch (index)
-                {
-                    //0 FOR OPTIC, 1 FOR LASER, 2 FOR BARREL, etc
-                    //set the attachment slots image and name
-                    case 0:
+                //0 FOR OPTIC, 1 FOR LASER, 2 FOR BARREL, etc
+                //set the attachment slots image and name
+                case 0:
+                    if (attachmentInSlot.GetComponent<AttachmentData>().attachmentType == "optic")
+                    {
                         GunsmithManager.Instance.opticSlot.transform.GetChild(1).GetComponent<Image>().sprite = attachmentInSlot.GetComponent<AttachmentData>().icon;
                         GunsmithManager.Instance.opticSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = attachmentInSlot.GetComponent<AttachmentData>().attachmentName;
-                        break;
-                    case 1:
+                    }
+                    break;
+                case 1:
+                    if (attachmentInSlot.GetComponent<AttachmentData>().attachmentType == "laser")
+                    {
                         GunsmithManager.Instance.laserSlot.transform.GetChild(1).GetComponent<Image>().sprite = attachmentInSlot.GetComponent<AttachmentData>().icon;
                         GunsmithManager.Instance.laserSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = attachmentInSlot.GetComponent<AttachmentData>().attachmentName;
-                        break;
-                    case 2:
+                    }
+                    break;
+                case 2:
+                    if (attachmentInSlot.GetComponent<AttachmentData>().attachmentType == "barrel")
+                    {
                         GunsmithManager.Instance.barrelSlot.transform.GetChild(1).GetComponent<Image>().sprite = attachmentInSlot.GetComponent<AttachmentData>().icon;
                         GunsmithManager.Instance.barrelSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = attachmentInSlot.GetComponent<AttachmentData>().attachmentName;
-                        break;
-                    case 3:
+                    }
+                    break;
+                case 3:
+                    if (attachmentInSlot.GetComponent<AttachmentData>().attachmentType == "muzzle")
+                    {
                         GunsmithManager.Instance.muzzleSlot.transform.GetChild(1).GetComponent<Image>().sprite = attachmentInSlot.GetComponent<AttachmentData>().icon;
                         GunsmithManager.Instance.muzzleSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = attachmentInSlot.GetComponent<AttachmentData>().attachmentName;
-                        break;
-                    case 4:
+                    }
+                    break;
+                case 4:
+                    if (attachmentInSlot.GetComponent<AttachmentData>().attachmentType == "grip")
+                    {
                         GunsmithManager.Instance.gripSlot.transform.GetChild(1).GetComponent<Image>().sprite = attachmentInSlot.GetComponent<AttachmentData>().icon;
                         GunsmithManager.Instance.gripSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = attachmentInSlot.GetComponent<AttachmentData>().attachmentName;
-                        break;
-                    case 5:
+                    }
+                    break;
+                case 5:
+                    if (attachmentInSlot.GetComponent<AttachmentData>().attachmentType == "magazine")
+                    {
                         GunsmithManager.Instance.magazineSlot.transform.GetChild(1).GetComponent<Image>().sprite = attachmentInSlot.GetComponent<AttachmentData>().icon;
                         GunsmithManager.Instance.magazineSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = attachmentInSlot.GetComponent<AttachmentData>().attachmentName;
-                        break;
-                    case 6:
+                    }
+                    break;
+                case 6:
+                    if (attachmentInSlot.GetComponent<AttachmentData>().attachmentType == "rearGrip")
+                    {
                         GunsmithManager.Instance.rearGripSlot.transform.GetChild(1).GetComponent<Image>().sprite = attachmentInSlot.GetComponent<AttachmentData>().icon;
                         GunsmithManager.Instance.rearGripSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = attachmentInSlot.GetComponent<AttachmentData>().attachmentName;
-                        break;
-                    case 7:
+                    }
+                    break;
+                case 7:
+                    if (attachmentInSlot.GetComponent<AttachmentData>().attachmentType == "stock")
+                    {
                         GunsmithManager.Instance.stockSlot.transform.GetChild(1).GetComponent<Image>().sprite = attachmentInSlot.GetComponent<AttachmentData>().icon;
                         GunsmithManager.Instance.stockSlot.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = attachmentInSlot.GetComponent<AttachmentData>().attachmentName;
-                        break;
-                }
-            }
-            else
-            {
-                //set to default values
-                transform.GetChild(1).GetComponent<Image>().sprite = emptySlotImage;
-                transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "EMPTY";
+                    }
+                    break;
             }
         }
     }

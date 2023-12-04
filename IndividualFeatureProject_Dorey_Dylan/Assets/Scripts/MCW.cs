@@ -42,6 +42,7 @@ public class MCW : Weapon
 
     private void Start()
     {
+        //remove all attachments from the weapon
         for (int index = 0; index < weaponAttachments.Length; index++)
         {
             weaponAttachments[index] = null;
@@ -60,6 +61,9 @@ public class MCW : Weapon
         {
             weaponAttachments[2] = barrels[0];
             barrels[0].SetActive(true);
+
+            //set the muzzle location to the end of the current barrel
+            muzzleLocation = weaponAttachments[2].gameObject.transform.GetChild(0).gameObject;
         }
         else if (weaponAttachments[5] == null)
         {

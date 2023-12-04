@@ -256,8 +256,8 @@ public class UIManager : MonoBehaviour
         //if the player is in the select weapon menu
         if (screenState == ScreenState.selectWeapon)
         {
-            //Change background
-            //weaponSelectScreen.GetComponent<Image>().sprite =
+            //display weapon
+            weapon.SetActive(true);
 
             //Display all weapon info/stats
             wsWeaponInfoPanel.SetActive(true);
@@ -276,17 +276,10 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void OnWeaponButtonExit(GameObject weapon)
     {
-        //Change background
-        //weaponSelectScreen.GetComponent<Image>().sprite =
+        //dont display weapon
+        weapon.SetActive(false);
 
-        //Clear all weapon info/stats
-        //wsWeaponTypeNameText.text = "";
-        //wsWeaponNameText.text = "";
-        //wsWeaponDescriptionText.text = "";
-
-        //wsAmmoText.text = "";
-        //wsAmmoReserveText.text = "";
-
+        //disable stats
         wsWeaponInfoPanel.SetActive(false);
     }
 

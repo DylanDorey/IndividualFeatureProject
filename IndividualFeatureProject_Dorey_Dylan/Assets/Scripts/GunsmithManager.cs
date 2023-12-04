@@ -20,11 +20,11 @@ public class GunsmithManager : MonoBehaviour
     //the current attachment the player is editing
     public string currentEditingAttachment;
 
+    //the amount of attachments in each attachment category
     public int amountOfAttachments;
-    public GameObject[] attachmentArray;
 
-    //the current weapon inside the gunsmith normal rotation
-    public Quaternion originalWeaponRotation;
+    //the various attahments to choose from when an attachment type is picked
+    public GameObject[] attachmentArray;
 
     //the amount of weapons available to use in the gunsmith
     private int numWeapons = 1;
@@ -179,6 +179,47 @@ public class GunsmithManager : MonoBehaviour
 
         //set attachment in slot
 
+        //spawn in the appropriate attachment for each given attachment type
+        if (attachment.GetComponent<AttachmentData>().attachmentType == "optic")
+        {
+            Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().opticLocation.transform.position, Quaternion.identity);
+            attachment.SetActive(true);
+        }
+        else if (attachment.GetComponent<AttachmentData>().attachmentType == "laser")
+        {
+            Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().laserLocation.transform.position, Quaternion.identity);
+            attachment.SetActive(true);
+        }
+        else if (attachment.GetComponent<AttachmentData>().attachmentType == "barrel")
+        {
+            Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().barrelLocation.transform.position, Quaternion.identity);
+            attachment.SetActive(true);
+        }
+        else if (attachment.GetComponent<AttachmentData>().attachmentType == "muzzle")
+        {
+            Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().muzzleLocation.transform.position, Quaternion.identity);
+            attachment.SetActive(true);
+        }
+        else if (attachment.GetComponent<AttachmentData>().attachmentType == "grip")
+        {
+            Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().gripLocation.transform.position, Quaternion.identity);
+            attachment.SetActive(true);
+        }
+        else if (attachment.GetComponent<AttachmentData>().attachmentType == "magazine")
+        {
+            Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().magazineLocation.transform.position, Quaternion.identity);
+            attachment.SetActive(true);
+        }
+        else if (attachment.GetComponent<AttachmentData>().attachmentType == "rearGrip")
+        {
+            Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().rearGripLocation.transform.position, Quaternion.identity);
+            attachment.SetActive(true);
+        }
+        else if (attachment.GetComponent<AttachmentData>().attachmentType == "stock")
+        {
+            Instantiate(attachment, currentGSWeapon.GetComponent<Weapon>().stockLocation.transform.position, Quaternion.identity);
+            attachment.SetActive(true);
+        }
 
         //change attachment slot color
 

@@ -25,6 +25,9 @@ public class NewWeaponButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
 
         //initialize the current weapon in the gunsmith to this weapon
         GunsmithManager.Instance.currentGSWeapon = weapon;
+
+        //set the weapon active to true
+        GunsmithManager.Instance.currentGSWeapon.SetActive(true);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
