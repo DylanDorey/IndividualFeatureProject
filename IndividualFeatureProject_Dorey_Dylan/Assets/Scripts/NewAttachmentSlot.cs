@@ -50,9 +50,13 @@ public class NewAttachmentSlot : MonoBehaviour, IPointerDownHandler, IPointerEnt
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        //reset slot size
+        UIManager.Instance.OnAttachmentSlotExit(this.gameObject);
+
         //Move the camera to the appropriate location
         CameraManager.Instance.MoveCamToPos(attachmentType);
 
+        //the attachment type that is currently being edited
         GunsmithManager.Instance.currentEditingAttachment = attachmentType;
 
         //Open the attachment list
@@ -62,13 +66,13 @@ public class NewAttachmentSlot : MonoBehaviour, IPointerDownHandler, IPointerEnt
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //enlare slot size
+        //enlare slot size while hovered on
         UIManager.Instance.OnAttachmentSlotEnter(this.gameObject);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //reset slot size
+        //reset slot size to default
         UIManager.Instance.OnAttachmentSlotExit(this.gameObject);
     }
 
@@ -85,8 +89,7 @@ public class NewAttachmentSlot : MonoBehaviour, IPointerDownHandler, IPointerEnt
         {
             switch (index)
             {
-                //0 FOR OPTIC, 1 FOR LASER, 2 FOR BARREL, etc
-                //set the attachment slots image and name
+                //set the certain attachment type slots image and name
                 case 0:
                     if (attachmentInSlot.GetComponent<AttachmentData>().attachmentType == "optic")
                     {

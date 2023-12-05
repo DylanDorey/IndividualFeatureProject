@@ -22,12 +22,6 @@ public class NewAttachmentButton : MonoBehaviour, IPointerDownHandler, IPointerE
     public TextMeshProUGUI attachmentName;
     public GameObject equippedText;
 
-    private void Start()
-    {
-        //initialize button image and name
-        //attachmentName.text = attachment.GetComponent<AttachmentData>().attachmentName;
-    }
-
     public void OnPointerDown(PointerEventData eventData)
     {
         //set attachment slot attachmentInSlot and current weapons attachments
@@ -117,10 +111,6 @@ public class NewAttachmentButton : MonoBehaviour, IPointerDownHandler, IPointerE
 
         //equip the attachment to the attachment slot once the player clicks on the button
         GunsmithManager.Instance.EquipAttachment(attachment);
-
-        ////set the check mark and equipped text to active
-        //attachmentCheckMark.SetActive(true);
-        //equippedText.SetActive(true);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -140,6 +130,7 @@ public class NewAttachmentButton : MonoBehaviour, IPointerDownHandler, IPointerE
     /// </summary>
     private void ChangeWeaponStats()
     {
+        //set the weapons stat bars depending on the attachment that was selcted
         GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().damage += attachment.GetComponent<AttachmentData>().damageChange;
         GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().fireRate += attachment.GetComponent<AttachmentData>().fireRateChange;
         GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().range += attachment.GetComponent<AttachmentData>().rangeChange;

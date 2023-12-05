@@ -67,16 +67,6 @@ public class UIManager : MonoBehaviour
     public GameObject gsMobilityBar;
     public GameObject gsHandlingBar;
 
-    //gunsmith screen UI button elements
-    //public GameObject opticButton;
-    //public GameObject laserButton;
-    //public GameObject barrelButton;
-    //public GameObject muzzleButton;
-    //public GameObject gripButton;
-    //public GameObject magazineButton;
-    //public GameObject rearGripButton;
-    //public GameObject stockButton;
-
     //attachment selection screen UI text elements
     public GameObject newAttachmentButtonPrefab;
     public GameObject attachmentButtonSpawnLoc;
@@ -87,12 +77,6 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI prosText;
     public TextMeshProUGUI consText;
     public GameObject attachmentInfoPanel;
-
-    //attachment selection screen UI button elements
-    //public GameObject attachmentButtonPrefab;
-
-    //bool to determine if the attachment slot already has an attachment in it
-    private bool alreadyHasAttachment = false;
 
     private void Awake()
     {
@@ -115,6 +99,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        //start by setting the screen state to playing
         screenState = ScreenState.playing;
 
         //set the base weapon stats on the weapon select screen
@@ -124,6 +109,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        //constantly check for when the screen state has changed
         CheckScreenState();
 
         //if the gunsmith screen is open
@@ -140,6 +126,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     private void CheckScreenState()
     {
+        //switch the screen UI to the appropriate screen depending on where the player navigates
         switch (screenState)
         {
             case ScreenState.disabled:
@@ -197,10 +184,8 @@ public class UIManager : MonoBehaviour
         //switch player screen to the gunsmith screen
         screenState = ScreenState.gunsmith;
 
-        //get weapon selected
-
         //open gunsmith with correct weapon
-        //spawn the selected weapon at 0,0,0
+        //spawn the selected weapon at 0,-2,0
         Instantiate(weaponSelected, new Vector3(0, -2, 0), weaponSelected.transform.rotation);
 
         //change the name to weapons name to remove (Clone)
@@ -209,8 +194,6 @@ public class UIManager : MonoBehaviour
         //change all text and values of gunsmith UI elements
         gsWeaponTypeNameText.text = weaponSelected.GetComponent<Weapon>().weaponType;
         gsWeaponNameText.text = weaponSelected.GetComponent<Weapon>().weaponName;
-        //gsAmmoText.text = weaponSelected.GetComponent<Weapon>().magSize.ToString();
-        //gsAmmoReserveText.text = weaponSelected.GetComponent<Weapon>().reserveAmmoSize.ToString();
     }
 
     /// <summary>
@@ -292,7 +275,8 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void OnAttachmentSlotEnter(GameObject attachmentSlot)
     {
-
+        //enlarge attachment slot
+        attachmentSlot.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
     }
 
     /// <summary>
@@ -300,7 +284,8 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void OnAttachmentSlotExit(GameObject attachmentSlot)
     {
-
+        //reset attachment slot size to default
+        attachmentSlot.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     /// <summary>
@@ -317,9 +302,6 @@ public class UIManager : MonoBehaviour
         attachmentDescriptionText.text = attachment.GetComponent<AttachmentData>().description;
         prosText.text = attachment.GetComponent<AttachmentData>().pros;
         consText.text = attachment.GetComponent<AttachmentData>().cons;
-
-        //adjust stat bars given attachment attributes
-
     }
 
     /// <summary>
@@ -336,6 +318,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     private void UpdateWeaponAmmo()
     {
+        //set the ammo text and ammo reserve text to the weapons current ammo attributes
         gsAmmoText.text = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().magSize.ToString();
         gsAmmoReserveText.text = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().reserveAmmoSize.ToString();
     }
@@ -345,6 +328,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void SetBaseWeaponStats()
     {
+        //set stat bar values to weapons base values
         wsDamageBar.transform.localScale = new Vector3(0.5f, 1f, 1f);
         wsFireRateBar.transform.localScale = new Vector3(0.7f, 1f, 1f);
         wsRangeBar.transform.localScale = new Vector3(0.4f, 1f, 1f);

@@ -48,40 +48,49 @@ public class CameraManager : MonoBehaviour
         switch (attachmentType)
         {
             case "optic":
+                //move the cams position to the correct attachment location, rotate appropriately, and set isRotated to true or false
                 gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().opticCamPos.position;
                 gunsmithCam.transform.Rotate(0f, -45f, 0f);
                 isRotatedLeft = true;
                 break;
             case "laser":
+                //move the cams position to the correct attachment location, rotate appropriately, and set isRotated to true or false
                 gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().laserCamPos.position;
                 gunsmithCam.transform.Rotate(0f, 45f, 0f);
                 isRotatedRight = true;
                 break;
             case "barrel":
+                //move the cams position to the correct attachment location, rotate appropriately, and set isRotated to true or false
                 gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().barrelCamPos.position;
                 break;
             case "muzzle":
+                //move the cams position to the correct attachment location, rotate appropriately, and set isRotated to true or false
                 gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().muzzleCamPos.position;
                 gunsmithCam.transform.Rotate(0f, 45f, 0f);
                 isRotatedRight = true;
                 break;
             case "grip":
+                //move the cams position to the correct attachment location, rotate appropriately, and set isRotated to true or false
                 gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().gripCamPos.position;
                 break;
             case "magazine":
+                //move the cams position to the correct attachment location, rotate appropriately, and set isRotated to true or false
                 gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().magazineCamPos.position;
                 gunsmithCam.transform.Rotate(0f, 45f, 0f);
                 isRotatedRight = true;
                 break;
             case "rearGrip":
+                //move the cams position to the correct attachment location, rotate appropriately, and set isRotated to true or false
                 gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().rearGripCamPos.position;
                 break;
             case "stock":
+                //move the cams position to the correct attachment location, rotate appropriately, and set isRotated to true or false
                 gunsmithCam.transform.position = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().stockCamPos.position;
                 gunsmithCam.transform.Rotate(0f, 45f, 0f);
                 isRotatedRight = true;
                 break;
             default:
+                //move the cam to its default location if it has no where to go
                 gunsmithCam.transform.position = defaultCamPos;
                 break;
         }

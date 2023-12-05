@@ -68,11 +68,6 @@ public class GunsmithManager : MonoBehaviour
         weapons[0] = MCW;
     }
 
-    private void Update()
-    {
-
-    }
-
     /// <summary>
     /// Opens the gunsmith attachment UI menu for the player
     /// </summary>
@@ -152,7 +147,7 @@ public class GunsmithManager : MonoBehaviour
             //Set new buttons parent as the weapon select screen
             newButton.transform.SetParent(UIManager.Instance.attachmentSelectionScreen.transform);
 
-            //WORK HERE, try to get all three things to show up on the buttons once they populate
+            //set the attachment, image, and name of the attachment in the attachment slot
             newButtonScript.attachment = attachmentArray[x].gameObject;
             newButtonScript.attachmentImage.GetComponent<Image>().sprite = attachmentArray[x].GetComponent<AttachmentData>().icon;
             newButtonScript.attachmentName.text = attachmentArray[x].GetComponent<AttachmentData>().attachmentName;
@@ -171,14 +166,11 @@ public class GunsmithManager : MonoBehaviour
     /// <param name="attachment"> the attachment the player selects to equip onto their weapon </param>
     public void EquipAttachment(GameObject attachment)
     {
-        //---------------------------------^ use this variable for the attachment/access the attachment items like attachment icon, name, AttachmentData script, etc (look at NewAttachmentButton script)
         //move camera back to original position
         CameraManager.Instance.MoveCamBack();
 
         //change screen state back to gunsmith
         UIManager.Instance.screenState = ScreenState.gunsmith;
-
-        //set attachment in slot
 
         //spawn in the appropriate attachment for each given attachment type
         if (attachment.GetComponent<AttachmentData>().attachmentType == "optic")
@@ -231,12 +223,6 @@ public class GunsmithManager : MonoBehaviour
             attachment.SetActive(true);
         }
 
-        //change attachment slot color
-
-        //change attachment slot image
-
-        //change attachment slot item name
-
         //clear the attachment button list
         ResetAttachmentButtons();
     }
@@ -250,6 +236,7 @@ public class GunsmithManager : MonoBehaviour
         if (currentEditingAttachment == "optic")
         {
             //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
+            RevertStatBars(currentGSWeapon.GetComponent<Weapon>().weaponAttachments[0]);
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[0] = null;
             opticSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
             opticSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
@@ -257,6 +244,7 @@ public class GunsmithManager : MonoBehaviour
         else if (currentEditingAttachment == "laser")
         {
             //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
+            RevertStatBars(currentGSWeapon.GetComponent<Weapon>().weaponAttachments[1]);
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[1] = null;
             laserSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
             laserSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
@@ -264,6 +252,7 @@ public class GunsmithManager : MonoBehaviour
         else if (currentEditingAttachment == "barrel")
         {
             //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
+            RevertStatBars(currentGSWeapon.GetComponent<Weapon>().weaponAttachments[2]);
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[2] = null;
             barrelSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
             barrelSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
@@ -271,6 +260,7 @@ public class GunsmithManager : MonoBehaviour
         else if(currentEditingAttachment == "muzzle")
         {
             //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
+            RevertStatBars(currentGSWeapon.GetComponent<Weapon>().weaponAttachments[3]);
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[3] = null;
             muzzleSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
             muzzleSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
@@ -278,6 +268,7 @@ public class GunsmithManager : MonoBehaviour
         else if (currentEditingAttachment == "grip")
         {
             //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
+            RevertStatBars(currentGSWeapon.GetComponent<Weapon>().weaponAttachments[4]);
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[4] = null;
             gripSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
             gripSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
@@ -285,13 +276,19 @@ public class GunsmithManager : MonoBehaviour
         else if (currentEditingAttachment == "magazine")
         {
             //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
+            RevertStatBars(currentGSWeapon.GetComponent<Weapon>().weaponAttachments[5]);
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[5] = null;
             magazineSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
             magazineSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
+
+            //set the ammo amounts back to default
+            UIManager.Instance.gsAmmoText.text = "30";
+            UIManager.Instance.gsAmmoReserveText.text = "90";
         }
         else if (currentEditingAttachment == "rearGrip")
         {
             //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
+            RevertStatBars(currentGSWeapon.GetComponent<Weapon>().weaponAttachments[6]);
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[6] = null;
             rearGripSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
             rearGripSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
@@ -299,6 +296,7 @@ public class GunsmithManager : MonoBehaviour
         else if (currentEditingAttachment == "stock")
         {
             //set the weapons attachment slot to null, remove the current attachment from the weapon, remove the attachment from the slot
+            RevertStatBars(currentGSWeapon.GetComponent<Weapon>().weaponAttachments[7]);
             currentGSWeapon.GetComponent<Weapon>().weaponAttachments[7] = null;
             stockSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot.SetActive(false);
             stockSlot.GetComponent<NewAttachmentSlot>().attachmentInSlot = null;
@@ -316,14 +314,24 @@ public class GunsmithManager : MonoBehaviour
     }
 
     /// <summary>
-    /// equips the weapon from the gunsmith and puts it in the players hands
+    /// Once an attachment is removed this will add the reset the stat bar values back to what they should be without the attachment equipped
     /// </summary>
-    /// <param name="weapon"> the weapon that the player selected with all of their attachments </param>
-    public void EquipCompletedWeapon(GameObject weapon)
+    /// <param name="currentAttachment"> the attachment that is being removed </param>
+    private void RevertStatBars(GameObject currentAttachment)
     {
-        //SAVE THE ATTACHMENTS IN THE WEAPON ATTACHMENTS ARRAY
+        //removes the various stat bar amounts from the stats
+        currentGSWeapon.GetComponent<Weapon>().damage -= currentAttachment.GetComponent<AttachmentData>().damageChange;
+        currentGSWeapon.GetComponent<Weapon>().fireRate -= currentAttachment.GetComponent<AttachmentData>().fireRateChange;
+        currentGSWeapon.GetComponent<Weapon>().range -= currentAttachment.GetComponent<AttachmentData>().rangeChange;
+        currentGSWeapon.GetComponent<Weapon>().accuracy -= currentAttachment.GetComponent<AttachmentData>().accuracyChange;
+        currentGSWeapon.GetComponent<Weapon>().recoilControl -= currentAttachment.GetComponent<AttachmentData>().recoilControlChange;
+        currentGSWeapon.GetComponent<Weapon>().mobility -= currentAttachment.GetComponent<AttachmentData>().mobilityChange;
+        currentGSWeapon.GetComponent<Weapon>().handling -= currentAttachment.GetComponent<AttachmentData>().handlingChange;
     }
 
+    /// <summary>
+    /// clears the list of attachments once the player exits out of the attachment selection screen
+    /// </summary>
     public void ResetAttachmentButtons()
     {
         //loop through attachmentListButtons list
@@ -332,6 +340,8 @@ public class GunsmithManager : MonoBehaviour
             //destroy the buttons that are present
             Destroy(button);
         }
+
+        //clear the list of attachment buttons
         attachmentListButtons.Clear();
     }
 }

@@ -8,14 +8,6 @@ using UnityEngine;
  * [Contains all weapon properties and base behaviors]
  */
 
-//the type of weapon the gun is
-public enum FireMode
-{
-    semi,
-    burst,
-    auto
-}
-
 public class Weapon : MonoBehaviour
 {
     //Locations where all of the attachments will attach to on the weapon
