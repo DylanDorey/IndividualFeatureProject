@@ -130,40 +130,40 @@ public class UIManager : MonoBehaviour
         switch (screenState)
         {
             case ScreenState.disabled:
-                gameScreen.SetActive(false);
-                weaponSelectScreen.SetActive(false);
-                gunsmithScreen.SetActive(false);
-                attachmentSelectionScreen.SetActive(false);
+                SetScreenState(false, false, false, false);
                 break;
 
             case ScreenState.playing:
-                gameScreen.SetActive(true);
-                weaponSelectScreen.SetActive(false);
-                gunsmithScreen.SetActive(false);
-                attachmentSelectionScreen.SetActive(false);
+                SetScreenState(true, false, false, false);
                 break;
 
             case ScreenState.selectWeapon:
-                gameScreen.SetActive(false);
-                weaponSelectScreen.SetActive(true);
-                gunsmithScreen.SetActive(false);
-                attachmentSelectionScreen.SetActive(false);
+                SetScreenState(false, true, false, false);
                 break;
 
             case ScreenState.gunsmith:
-                gameScreen.SetActive(false);
-                weaponSelectScreen.SetActive(false);
-                gunsmithScreen.SetActive(true);
-                attachmentSelectionScreen.SetActive(false);
+                SetScreenState(false, false, true, false);
                 break;
 
             case ScreenState.attachmentSelection:
-                attachmentSelectionScreen.SetActive(true);
-                gameScreen.SetActive(false);
-                weaponSelectScreen.SetActive(false);
-                gunsmithScreen.SetActive(false);
+                SetScreenState(false, false, false, true);
                 break;
         }
+    }
+
+    /// <summary>
+    /// Sets the current state of the screen to true / false
+    /// </summary>
+    /// <param name="game"> the game screen </param>
+    /// <param name="weaponSelect"> the weapon select screen </param>
+    /// <param name="gunsmith"> the gunsmith screen </param>
+    /// <param name="attachmentSelect"> the attachment selection screen </param>
+    private void SetScreenState(bool game, bool weaponSelect, bool gunsmith, bool attachmentSelect)
+    {
+        gameScreen.SetActive(game);
+        weaponSelectScreen.SetActive(weaponSelect);
+        gunsmithScreen.SetActive(gunsmith);
+        attachmentSelectionScreen.SetActive(attachmentSelect);
     }
 
     /// <summary>
@@ -216,16 +216,18 @@ public class UIManager : MonoBehaviour
             //spawn a new button at the appropriate spawn location and reference to the buttons attached script
             GameObject newButton = Instantiate(newWeaponButtonPrefab, weaponButtonSpawnLoc.transform.position, weaponButtonSpawnLoc.transform.rotation);
             NewWeaponButton newButtonScript = newButton.GetComponent<NewWeaponButton>();
+            Weapon gunsmithWeapon = GunsmithManager.Instance.weapons[x].GetComponent<Weapon>();
 
             //Set new buttons parent as the weapon select screen
             newButton.transform.SetParent(weaponSelectScreen.transform);
 
             //set all button values
             newButtonScript.weapon = GunsmithManager.Instance.weapons[x].gameObject;
-            newButtonScript.buttonWeaponTypeText.text = GunsmithManager.Instance.weapons[x].GetComponent<Weapon>().weaponType;
+            newButtonScript.buttonWeaponTypeText.text = gunsmithWeapon.weaponType;
+
             //ADD MODIFICATIONS WITH SWITCH ON THE WEAPONS MODIFICATIONS INT VALUE (SET ACTIVE)
-            newButtonScript.buttonWeaponImage.sprite = GunsmithManager.Instance.weapons[x].GetComponent<Weapon>().icon;
-            newButtonScript.buttonWeaponNameText.text = GunsmithManager.Instance.weapons[x].GetComponent<Weapon>().weaponName;
+            newButtonScript.buttonWeaponImage.sprite = gunsmithWeapon.icon;
+            newButtonScript.buttonWeaponNameText.text = gunsmithWeapon.weaponName;
 
             //increase and move x spawn location for next button spawn
             weaponButtonSpawnLoc.transform.position = new Vector3(weaponButtonSpawnLoc.transform.position.x + 300f, weaponButtonSpawnLoc.transform.position.y, weaponButtonSpawnLoc.transform.position.z);
@@ -243,18 +245,20 @@ public class UIManager : MonoBehaviour
         //if the player is in the select weapon menu
         if (screenState == ScreenState.selectWeapon)
         {
+            Weapon gunsmithWeapon = weapon.GetComponent<Weapon>();
+
             //display weapon
             weapon.SetActive(true);
 
             //Display all weapon info/stats
             wsWeaponInfoPanel.SetActive(true);
 
-            wsWeaponTypeNameText.text = weapon.GetComponent<Weapon>().weaponType;
-            wsWeaponNameText.text = weapon.GetComponent<Weapon>().weaponName;
-            wsWeaponDescriptionText.text = weapon.GetComponent<Weapon>().weaponDescription;
+            wsWeaponTypeNameText.text = gunsmithWeapon.weaponType;
+            wsWeaponNameText.text = gunsmithWeapon.weaponName;
+            wsWeaponDescriptionText.text = gunsmithWeapon.weaponDescription;
 
-            wsAmmoText.text = weapon.GetComponent<Weapon>().magSize.ToString();
-            wsAmmoReserveText.text = weapon.GetComponent<Weapon>().reserveAmmoSize.ToString();
+            wsAmmoText.text = gunsmithWeapon.magSize.ToString();
+            wsAmmoReserveText.text = gunsmithWeapon.reserveAmmoSize.ToString();
         }
     }
 
@@ -296,12 +300,14 @@ public class UIManager : MonoBehaviour
         //enable the attachment info panel when hovering over an attachment selection
         attachmentInfoPanel.SetActive(true);
 
+        AttachmentData attachmentData = attachment.GetComponent<AttachmentData>();
+
         //display the attachment type, name, description, pros, and cons
-        attachmentTypeText.text = attachment.GetComponent<AttachmentData>().attachmentType;
-        attachmentNameText.text = attachment.GetComponent<AttachmentData>().attachmentName;
-        attachmentDescriptionText.text = attachment.GetComponent<AttachmentData>().description;
-        prosText.text = attachment.GetComponent<AttachmentData>().pros;
-        consText.text = attachment.GetComponent<AttachmentData>().cons;
+        attachmentTypeText.text = attachmentData.attachmentType;
+        attachmentNameText.text = attachmentData.attachmentName;
+        attachmentDescriptionText.text = attachmentData.description;
+        prosText.text = attachmentData.pros;
+        consText.text = attachmentData.cons;
     }
 
     /// <summary>
@@ -343,14 +349,16 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void UpdateGSStatBars()
     {
+        Weapon gunsmithWeapon = GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>();
+
         //set the current weapons stat values based upon the attachments they have equipped
-        gsDamageBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().damage, 1f, 1f);
-        gsFireRateBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().fireRate, 1f, 1f);
-        gsRangeBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().range, 1f, 1f);
-        gsAccuracyBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().accuracy, 1f, 1f);
-        gsRecoilControlBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().recoilControl, 1f, 1f);
-        gsMobilityBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().mobility, 1f, 1f);
-        gsHandlingBar.transform.localScale = new Vector3(GunsmithManager.Instance.currentGSWeapon.GetComponent<Weapon>().handling, 1f, 1f);
+        gsDamageBar.transform.localScale = new Vector3(gunsmithWeapon.damage, 1f, 1f);
+        gsFireRateBar.transform.localScale = new Vector3(gunsmithWeapon.fireRate, 1f, 1f);
+        gsRangeBar.transform.localScale = new Vector3(gunsmithWeapon.range, 1f, 1f);
+        gsAccuracyBar.transform.localScale = new Vector3(gunsmithWeapon.accuracy, 1f, 1f);
+        gsRecoilControlBar.transform.localScale = new Vector3(gunsmithWeapon.recoilControl, 1f, 1f);
+        gsMobilityBar.transform.localScale = new Vector3(gunsmithWeapon.mobility, 1f, 1f);
+        gsHandlingBar.transform.localScale = new Vector3(gunsmithWeapon.handling, 1f, 1f);
     }
 
     /// <summary>
